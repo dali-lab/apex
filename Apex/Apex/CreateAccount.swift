@@ -23,19 +23,6 @@ class CreateAccount: UIViewController {
         // Create a reference to a Firebase location
         var myRootRef = Firebase(url:"https://apexdatabase.firebaseio.com")
         
-        // Create user
-        myRootRef.createUser("bobtony@example.com", password: "correcthorsebatterystaple",
-                             withValueCompletionBlock: { error, result in
-                                if error != nil {
-                                    // There was an error creating the account
-                                } else {
-                                    let uid = result["uid"] as? String
-                                    print("Successfully created user account with uid: \(uid)")
-                                }
-        })
-        
-        // Create user node
-        
     }
 
     @IBAction func signupButton(sender: UIButton) {
