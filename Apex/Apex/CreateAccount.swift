@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 import Firebase
 
 class CreateAccount: UIViewController {
@@ -40,14 +41,14 @@ class CreateAccount: UIViewController {
         let dashin:NSString = dashTextField.text! as NSString
         let namein:NSString = nameTextField.text! as NSString
         
-        if (emailin.isEqualToString("") || passwordin.isEqualToString("") || dashin.isEqualToString("") || namein.isEqualToString("")) {
-            
-            var alertView = UIAlertView()
-            alertView.title = "Sign up Failed!"
-            alertView.message = "Please fill in all textfields"
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
+        if (emailin.isEqualToString("")) {
+            SCLAlertView().showError("Sign Up Failed", subTitle: "Please enter an email and try again")
+        } else if (passwordin.isEqualToString("")) {
+            SCLAlertView().showError("Sign Up Failed", subTitle: "Please enter a password and try again")
+        } else if (dashin.isEqualToString("")) {
+            SCLAlertView().showError("Sign Up Failed", subTitle: "Please enter your valid DASH number and try again")
+        } else if ( namein.isEqualToString("")) {
+            SCLAlertView().showError("Sign Up Failed", subTitle: "Please enter your full name and try again")
         } else {
             // Create user
             print("OK")
