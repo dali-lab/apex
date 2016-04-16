@@ -123,9 +123,9 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     func setUpSlideShow() {
         slideshow.backgroundColor = UIColor.whiteColor()
         slideshow.slideshowInterval = 5.0
-        slideshow.pageControlPosition = PageControlPosition.UnderScrollView
+        slideshow.pageControlPosition = PageControlPosition.InsideScrollView
         slideshow.pageControl.currentPageIndicatorTintColor = UIColor.lightGrayColor();
-        slideshow.pageControl.pageIndicatorTintColor = UIColor.blackColor();
+        slideshow.pageControl.pageIndicatorTintColor = UIColor.whiteColor();
         slideshow.contentScaleMode = .ScaleAspectFill
         
         slideshow.setImageInputs([AlamofireSource(urlString: "https://thumbs.dreamstime.com/z/flysch-rocks-barrika-beach-sunset-58426273.jpg")!, AlamofireSource(urlString: "https://thumbs.dreamstime.com/z/man-surfboard-beautiful-foggy-beach-boy-running-golden-sunrise-daytona-florida-58532550.jpg")!, AlamofireSource(urlString: "https://thumbs.dreamstime.com/z/woman-putting-mask-her-face-black-cloak-sitting-ground-58291716.jpg")!])

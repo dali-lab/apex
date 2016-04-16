@@ -146,6 +146,9 @@ class HomeFeedViewController: UIViewController {
         
         TripClass.getTrips(myfunc)
         
+        tableView.estimatedRowHeight = 188
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         
     }
 
@@ -156,6 +159,22 @@ class HomeFeedViewController: UIViewController {
         tableView.reloadData()
         
         
+    }
+    
+    func iconMapping(tag:String) -> String {
+        
+
+        //used in change region
+        let iconDict: [String:String] = [
+            "Hiking" : "icon_hiking",
+            "CnT" : "icon_cabin",
+            "White Mountains" : "icon_WhiteMountains",
+            "DMC" : "icon_DMC",
+            "Climbing" : "icon_climbing",
+            "Rumney" : "icon_Rumney",
+            "Camping" : "icon_Camping" ]
+        
+        return iconDict[tag]!
     }
 
 
@@ -183,6 +202,7 @@ class HomeFeedViewController: UIViewController {
         let trip = tripArr[indexPath.section]
         
         cell.picture.image = UIImage(named: "picture_mountain_1")
+<<<<<<< HEAD
         cell.title.text = trip.name
         cell.registration.text = trip.getRegistrationText()
 
@@ -202,11 +222,6 @@ class HomeFeedViewController: UIViewController {
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-    {
-        return 208;//Choose your custom row height
-    }
-    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 { return CGFloat.min }
         return 6
@@ -224,6 +239,7 @@ class HomeFeedViewController: UIViewController {
         let mainSB: UIStoryboard = UIStoryboard(name: "Tabs", bundle: nil)
         let detailVC = mainSB.instantiateViewControllerWithIdentifier("Detail") as! DetailViewController
         detailVC.tripObj = tripArr[indexPath.section]
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.navigationController!.pushViewController(detailVC, animated: true)
     }
 
