@@ -14,6 +14,7 @@ class MyTrips: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var tripArr = [TripClass]()
+    let refreshControl = UIRefreshControl()
 
     @IBAction func logoutPressed(sender: AnyObject) {
         
@@ -36,7 +37,8 @@ class MyTrips: UIViewController {
         TripClass.getMyTrips(myfunc)
         
         
-        
+        refreshControl.addTarget(self, action: Selector("enlargeTable"), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
         
         tableView.estimatedRowHeight = 188
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -44,10 +46,15 @@ class MyTrips: UIViewController {
         
     }
     
+    func enlargeTable() {
+        TripClass.getMyTrips(myfunc)
+    }
+    
     func myfunc(trips: [TripClass]) {
         tripArr = trips
         print("reloading database")
         tableView.reloadData()
+        refreshControl.endRefreshing()
         
         
     }
