@@ -19,6 +19,7 @@ class CreateAccount: UIViewController {
     
     var myRootRef = Firebase(url:"https://apexdatabase.firebaseio.com")
     let showTabsFromSignup = "showTabsFromSignup"
+    let backToLogin = "backToLogin"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,10 @@ class CreateAccount: UIViewController {
                 self.performSegueWithIdentifier(self.showTabsFromSignup, sender: nil)
             }
         }
+    }
+    
+    @IBAction func backClick(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func signupClick(sender: UIButton) {
@@ -54,12 +59,7 @@ class CreateAccount: UIViewController {
             myRootRef.createUser(emailin as String, password: passwordin as String, withValueCompletionBlock: { error, result in
                                     if error != nil {
                                         // There was an error creating the account
-                                        let alertView:UIAlertView = UIAlertView()
-                                        alertView.title = "Sign up Failed!"
-                                        alertView.message = "Please try again"
-                                        alertView.delegate = self
-                                        alertView.addButtonWithTitle("OK")
-                                        alertView.show()
+                                        SCLAlertView().showError("Sign Up Failed", subTitle: "Please try again")
                                     } else {
                                         let uid = result["uid"] as? String
                                         print("Successfully created user account with uid: \(uid)")
@@ -73,7 +73,7 @@ class CreateAccount: UIViewController {
                                         self.myRootRef.authUser(emailin as String, password: passwordin as String,
                                             withCompletionBlock: { (error, auth) in
                                                 if error != nil {
-                                                    // error
+                                                    SCLAlertView().showError("Log In Failed", subTitle: "Please try logging in again from the home page")
                                                 }
                                                 else {
                                                     print(auth.uid)

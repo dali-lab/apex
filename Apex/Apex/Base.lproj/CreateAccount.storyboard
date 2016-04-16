@@ -70,6 +70,15 @@
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLv-Py-bcv">
+                                <rect key="frame" x="20" y="28" width="33" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
+                                <state key="normal" image="cancel_icon"/>
+                                <connections>
+                                    <action selector="backClick:" destination="R2x-xf-vjG" eventType="touchUpInside" id="Yhs-JK-hA5"/>
+                                    <segue destination="ouD-Rd-cAb" kind="show" identifier="backToLogin" id="Nrt-HC-1OQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.34901960780000002" green="0.70196078429999997" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -106,6 +115,14 @@
             </objects>
             <point key="canvasLocation" x="513.5" y="505.5"/>
         </scene>
+        <!--Main-->
+        <scene sceneID="Xgl-VD-HGl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="ouD-Rd-cAb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ue2-jW-4bP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="340"/>
+        </scene>
         <!--Tabs-->
         <scene sceneID="2Fr-zK-YQh">
             <objects>
@@ -123,4 +140,7 @@
             <point key="canvasLocation" x="418" y="982"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cancel_icon" width="700" height="700"/>
+    </resources>
 </document>
