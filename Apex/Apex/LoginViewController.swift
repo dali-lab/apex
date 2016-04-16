@@ -8,6 +8,7 @@
 
 import Firebase
 import UIKit
+import SCLAlertView
 
 class LoginViewController: UIViewController {
 
@@ -32,7 +33,12 @@ class LoginViewController: UIViewController {
     @IBAction func onClickLogin(sender: AnyObject) {
         ref.authUser(email.text, password: password.text,
                      withCompletionBlock: { (error, auth) in
-                        
+                        if error != nil {
+                            SCLAlertView().showError("Failed to log in", subTitle: "Please enter your correct email or password and try again.")
+                        }
+                        else {
+                            
+                        }
         })
     }
     
