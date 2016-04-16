@@ -13,6 +13,7 @@ class CreateAccount: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dashTextField: UITextField!
     
     override func viewDidLoad() {
