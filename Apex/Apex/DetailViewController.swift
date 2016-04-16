@@ -34,7 +34,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
     let regionRadius: CLLocationDistance = 10000
     
-    var tripObj = TripClass(name: "", leaders: [], maxMembers: 0, cost: 0, tags: [], lat: 0.0, long: 0.0, members: [], description: "", startTime: 0, endTime: 0)
+    var tripObj = TripClass(id: "", name: "", leaders: [], maxMembers: 0, cost: 0, tags: [], lat: 0.0, long: 0.0, members: [], description: "", startTime: 0, endTime: 0)
     
     func imageMapping(leader: String) -> String {
  
