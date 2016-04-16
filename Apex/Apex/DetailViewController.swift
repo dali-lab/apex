@@ -41,9 +41,9 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
                 "Pat Xu" : "person_pat",
                 "Jason Feng" : "person_jason",
                 "Armin Mahban" : "person_armin",
-                "Yining Chen" : "person_yinning"]
+                "Yining Chen" : "person_yining"]
             
-            return iconDict[tag]!
+            return iconDict[leader]!
 
     }
 
@@ -52,15 +52,33 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         
         tripTitle.text = tripObj.name
         leader1Label.text = tripObj.leaders[0]
+        leader1Image.image = UIImage(named: imageMapping(tripObj.leaders[0]))
+        
+        leader1Image.layer.cornerRadius = leader1Image.frame.size.width / 2
+        leader1Image.clipsToBounds = true
+        leader1Image.layer.borderWidth = 3.0
+        leader1Image.layer.borderColor = UIColor.darkGrayColor().CGColor
+        leader2Image.layer.cornerRadius = leader3Image.frame.size.width / 2
+        leader2Image.clipsToBounds = true
+        leader2Image.layer.borderWidth = 3.0
+        leader2Image.layer.borderColor = UIColor.darkGrayColor().CGColor
+        leader3Image.layer.cornerRadius = leader1Image.frame.size.width / 2
+        leader3Image.clipsToBounds = true
+        leader3Image.layer.borderWidth = 3.0
+        leader3Image.layer.borderColor = UIColor.darkGrayColor().CGColor
+
+        
         
         if tripObj.leaders.count > 1 {
             leader2Label.text = tripObj.leaders[1]
+            leader2Image.image = UIImage(named: imageMapping(tripObj.leaders[1]))
         } else {
             leader2Label.hidden = true
             leader2Image.hidden = true
         }
         if tripObj.leaders.count > 2 {
             leader3Label.text = tripObj.leaders[2]
+            leader3Image.image = UIImage(named: imageMapping(tripObj.leaders[2]))
         } else {
             leader3Label.hidden = true
             leader3Image.hidden = true
