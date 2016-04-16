@@ -164,11 +164,9 @@ class TripClass {
 // UIViewController
 class HomeFeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    @IBAction func logoutPressed(sender: AnyObject) {
-        
-        
-    }
     
+    let logout = "logout"
+    let ref = Firebase(url: "https://apexdatabase.firebaseio.com")
     var tripArr = [TripClass]()
 
     override func viewDidLoad() {
@@ -189,6 +187,13 @@ class HomeFeedViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
     }
 
+    @IBAction func logoutClick(sender: AnyObject) {
+        print("logging out")
+        self.ref.unauth()
+        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "auth")
+        NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "userID")
+        self.performSegueWithIdentifier(logout, sender: nil)
+    }
 
     func myfunc(trips: [TripClass]) {
         tripArr = trips
