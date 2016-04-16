@@ -15,6 +15,10 @@ class MyTrips: UIViewController {
     
     var tripArr = [TripClass]()
 
+    @IBAction func logoutPressed(sender: AnyObject) {
+        
+        
+    }
 
     
     override func viewDidLoad() {
@@ -46,7 +50,6 @@ class MyTrips: UIViewController {
     }
     
     func iconMapping(tag:String) -> String {
-        
         
         //used in change region
         let iconDict: [String:String] = [
@@ -90,6 +93,8 @@ class MyTrips: UIViewController {
         } else {
             cell.registration.text = cell.registration.text! + ", $" + String(trip.cost)
         }
+        let iconMapped = iconMapping(tripArr[indexPath.section].tags[0])
+        cell.icon.image = UIImage(named: iconMapped)
         
         cell.descriptionText.numberOfLines = 0
         

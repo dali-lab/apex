@@ -160,6 +160,10 @@ class TripClass {
 // UIViewController
 class HomeFeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func logoutPressed(sender: AnyObject) {
+        
+        
+    }
     
     var tripArr = [TripClass]()
 
