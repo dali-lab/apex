@@ -34,7 +34,7 @@ class CreateAccount: UIViewController {
         })
         
         // Create user node
-        var usersRef = 
+        
     }
 
     @IBAction func signupButton(sender: UIButton) {
