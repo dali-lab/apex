@@ -87,6 +87,9 @@ class HomeFeedViewController: UIViewController {
         
         TripClass.getTrips(myfunc)
         
+        tableView.estimatedRowHeight = 188
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         
     }
 
@@ -99,6 +102,22 @@ class HomeFeedViewController: UIViewController {
         tableView.reloadData()
         
         
+    }
+    
+    func iconMapping(tag:String) -> String {
+        
+
+        //used in change region
+        let iconDict: [String:String] = [
+            "Hiking" : "icon_hiking",
+            "CnT" : "icon_cabin",
+            "White Mountains" : "icon_WhiteMountains",
+            "DMC" : "icon_DMC",
+            "Climbing" : "icon_climbing",
+            "Rumney" : "icon_Rumney",
+            "Camping" : "icon_Camping" ]
+        
+        return iconDict[tag]!
     }
 
 
@@ -126,16 +145,17 @@ class HomeFeedViewController: UIViewController {
         print ("cell")
         
         cell.picture.image = UIImage(named: "picture_mountain_1")
+        cell.descriptionText.numberOfLines = 0
+        cell.descriptionText.text = "Line \n2\n3"
         
-//        cell.picture.contentMode = .
+        print(tripArr[indexPath.section].tags[0])
+        let iconMapped = iconMapping(tripArr[indexPath.section].tags[0])
+        print(iconMapped)
+        cell.icon.image = UIImage(named: iconMapped)
+        
         
         
         return cell
-    }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-    {
-        return 208;//Choose your custom row height
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -155,6 +175,7 @@ class HomeFeedViewController: UIViewController {
         let mainSB: UIStoryboard = UIStoryboard(name: "Tabs", bundle: nil)
         let detailVC = mainSB.instantiateViewControllerWithIdentifier("Detail") as! DetailViewController
         detailVC.tripObj = tripArr[indexPath.section]
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         self.navigationController!.pushViewController(detailVC, animated: true)
         
         
