@@ -6,13 +6,14 @@
 //  Copyright © 2016 DALI. All rights reserved.
 //
 
+import Firebase
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let myRootRef = Firebase(url:"https://apexdatabase.firebaseio.com")
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -20,6 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().translucent = false
         UITabBar.appearance().barTintColor = UIColor.grayColor()
         UITabBar.appearance().tintColor = UIColor.whiteColor()
+        
+        myRootRef.observeAuthEventWithBlock { (authData) -> Void in
+            if authData != nil {
+                let tabsSB = UIStoryboard(name: "Tabs", bundle: nil)
+                self.window?.rootViewController = tabsSB.instantiateInitialViewController()
+            }
+        }
         
         return true
     }
