@@ -22,8 +22,7 @@ class CreateAccount: UIViewController {
     let backToLogin = "backToLogin"
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        super.viewDidLoad()        
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -77,7 +76,7 @@ class CreateAccount: UIViewController {
                                                 }
                                                 else {
                                                     UserManager.uid = auth.uid
-                                                    NSUserDefaults.standardUserDefaults().setObject(auth, forKey: "auth")
+                                                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "auth")
                                                 }
                                                 
                                         })

@@ -35,12 +35,26 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     let regionRadius: CLLocationDistance = 10000
     
     var tripObj = TripClass(name: "", leaders: [], maxMembers: 0, cost: 0, tags: [], lat: 0.0, long: 0.0, members: [], description: "", startTime: 0, endTime: 0)
+    
+    func imageMapping(leader: String) -> String {
+ 
+            //used in change region
+            let iconDict: [String:String] = [
+                "Pat Xu" : "person_pat",
+                "Jason Feng" : "person_jason",
+                "Armin Mahban" : "person_armin",
+                "Yining Chen" : "person_yinning"]
+            
+            return iconDict[leader]!
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tripTitle.text = tripObj.name
         leader1Label.text = tripObj.leaders[0]
+        
         if tripObj.leaders.count > 1 {
             leader2Label.text = tripObj.leaders[1]
         } else {
