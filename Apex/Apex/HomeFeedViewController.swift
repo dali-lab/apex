@@ -47,8 +47,51 @@ class TripClass {
         self.endTime = endTime
     }
     
+    // returns true if user was able to join trip
+    func joinTrip(userID: String) -> Bool {
+        if getRemainingSpots() < maxMembers {
+            members.append(userID)
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    // returns true if the user was able to leave the trip
+    func leaveTrip(userID: String) -> Bool {
+        var leftTrip = false
+        for index in 1...members.count {
+            if members[index-1] == userID {
+                members.removeAtIndex(index)
+                leftTrip = true
+            }
+        }
+        if leftTrip == false {
+            print("unable to leave the trip even though i'm supposed to be in there")
+        }
+        
+        return leftTrip
+    }
+    
     func getRemainingSpots() -> Int {
         return maxMembers - leaders.count - members.count
+    }
+    
+    func getRegistrationText() -> String {
+        var string = ""
+        if self.getRemainingSpots() == 0 { // remaining
+            string = "Trip is full"
+        } else {
+            string = String(self.getRemainingSpots()) + " " + (self.getRemainingSpots() == 0 ? "spot": "spots") + " remaining"
+        }
+        
+        if self.cost == 0 { //cost
+            string = string + ", Free"
+        } else {
+            string = string + ", $" + String(self.cost)
+        }
+        
+        return string
     }
     
     class func getTrips(callback:(trips: [TripClass]) -> Void) {
@@ -141,17 +184,7 @@ class HomeFeedViewController: UIViewController {
         
         cell.picture.image = UIImage(named: "picture_mountain_1")
         cell.title.text = trip.name
-        if trip.getRemainingSpots() == 0 { // remaining
-            cell.registration.text = "Trip is full"
-        } else {
-            cell.registration.text = String(trip.getRemainingSpots()) + " " + (trip.getRemainingSpots() == 0 ? "spot": "spots") + " remaining"
-        }
-        
-        if trip.cost == 0 { //cost
-            cell.registration.text = cell.registration.text! + ", Free"
-        } else {
-            cell.registration.text = cell.registration.text! + ", $" + String(trip.cost)
-        }
+        cell.registration.text = trip.getRegistrationText()
 
         cell.descriptionText.text = trip.description
         
