@@ -64,7 +64,9 @@ class MyTrips: UIViewController {
             "Rumney" : "icon_Rumney",
             "Camping" : "icon_Camping" ]
         
-        return iconDict[tag]!
+        if let icon = iconDict[tag] {
+            return icon
+        } else { return "icon_hiking" }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
