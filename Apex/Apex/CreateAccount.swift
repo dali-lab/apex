@@ -19,6 +19,7 @@ class CreateAccount: UIViewController {
     
     var myRootRef = Firebase(url:"https://apexdatabase.firebaseio.com")
     let showTabsFromSignup = "showTabsFromSignup"
+    let backToLogin = "backToLogin"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,10 @@ class CreateAccount: UIViewController {
                 self.performSegueWithIdentifier(self.showTabsFromSignup, sender: nil)
             }
         }
+    }
+    
+    @IBAction func backClick(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func signupClick(sender: UIButton) {
