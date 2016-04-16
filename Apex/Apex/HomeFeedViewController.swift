@@ -107,7 +107,6 @@ class TripClass {
         } else {
             string = string + ", $" + String(self.cost)
         }
-        
         return string
     }
     
@@ -182,16 +181,21 @@ class HomeFeedViewController: UIViewController {
     let logout = "logout"
     let ref = Firebase(url: "https://apexdatabase.firebaseio.com")
     var tripArr = [TripClass]()
+    let refreshControl = UIRefreshControl()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let navBar = self.navigationController?.navigationBar
         
-        navBar!.barTintColor = UIColor.whiteColor()
-        navBar!.translucent = true;
-        navBar!.tintColor = UIColor(red: 1, green: 0.6, blue: 0, alpha:1)
-        navBar!.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 22)!, NSForegroundColorAttributeName:UIColor(red: 1, green: 0.6, blue: 0, alpha:1)]
+        refreshControl.addTarget(self, action: Selector("enlargeTable"), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
+        
+        navBar!.barTintColor = UIColor.darkGrayColor()
+        navBar!.translucent = false;
+        navBar!.tintColor = UIColor.whiteColor()
+        navBar!.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 22)!, NSForegroundColorAttributeName:UIColor.whiteColor()]
         
         self.navigationItem.title = "Apex"
                 
@@ -213,7 +217,12 @@ class HomeFeedViewController: UIViewController {
         tripArr = trips
         print("reloading database")
         tableView.reloadData()
+        refreshControl.endRefreshing()
   
+    }
+    
+    func enlargeTable() {
+        TripClass.getTrips(myfunc)
     }
     
     func iconMapping(tag:String) -> String {
@@ -227,9 +236,12 @@ class HomeFeedViewController: UIViewController {
             "DMC" : "icon_DMC",
             "Climbing" : "icon_climbing",
             "Rumney" : "icon_Rumney",
-            "Camping" : "icon_Camping" ]
+            "Camping" : "icon_camping" ]
         
-        return iconDict[tag]!
+        if let icon = iconDict[tag] {
+            return icon
+        } else { return "icon_hiking" }
+        
     }
 
 
@@ -257,7 +269,7 @@ class HomeFeedViewController: UIViewController {
         let trip = tripArr[indexPath.section]
         
         
-        cell.picture.image = UIImage(named: "picture_mountain_1")
+        cell.picture.image = UIImage(named: "picture_mountain_\(indexPath.section + 1)")
         cell.title.text = trip.name
         cell.registration.text = trip.getRegistrationText()
 
@@ -265,8 +277,9 @@ class HomeFeedViewController: UIViewController {
 
         cell.descriptionText.text = trip.description
         
-//        cell.descriptionText.text = "1\n2\n3"
-        
+        let iconMapped = iconMapping(tripArr[indexPath.section].tags[0])
+        print(iconMapped)
+        cell.icon.image = UIImage(named: iconMapped)
         
         let startDate = NSDate(timeIntervalSince1970: trip.startTime)
         let startDateFormatter = NSDateFormatter()
@@ -275,6 +288,8 @@ class HomeFeedViewController: UIViewController {
         let endDate = NSDate(timeIntervalSince1970: trip.endTime)
         let endDateFormatter = NSDateFormatter()
         endDateFormatter.dateFormat = "h:mm a"
+        
+        
         
         cell.dateTime.text = startDateFormatter.stringFromDate(startDate) + " to " + endDateFormatter.stringFromDate(endDate)
         
@@ -291,7 +306,7 @@ class HomeFeedViewController: UIViewController {
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor.greenColor() //make the background color light blue
+        header.contentView.backgroundColor = UIColor.lightTextColor()
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
