@@ -52,6 +52,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Details"
+        
         tripTitle.text = tripObj.name
         leader1Label.text = tripObj.leaders[0]
         leader1Image.image = UIImage(named: imageMapping(tripObj.leaders[0]))
@@ -90,6 +92,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
 
         updateDescription()
         
+        textDescription.userInteractionEnabled = false
         let fixedWidth = textDescription.frame.size.width
         textDescription.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
         let newSize = textDescription.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))

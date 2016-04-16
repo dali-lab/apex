@@ -35,6 +35,9 @@ class MyTrips: UIViewController {
         
         TripClass.getMyTrips(myfunc)
         
+        
+        
+        
         tableView.estimatedRowHeight = 188
         tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -80,7 +83,7 @@ class MyTrips: UIViewController {
         let trip = tripArr[indexPath.section]
         
         
-        cell.picture.image = UIImage(named: "picture_mountain_1")
+        cell.picture.image = UIImage(named: "picture_mountain_\(indexPath.section + 1)")
         cell.title.text = trip.name
         if trip.getRemainingSpots() == 0 { // remaining
             cell.registration.text = "Trip is full"
@@ -116,13 +119,13 @@ class MyTrips: UIViewController {
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 { return CGFloat.min }
-        return 6
-    }
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return CGFloat.min
-    }
+//    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        if section == 0 { return CGFloat.min }
+//        return 6
+//    }
+//    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return CGFloat.min
+//    }
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
