@@ -45,7 +45,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
                 "Armin Mahban" : "person_armin",
                 "Yining Chen" : "person_yinning"]
             
-            return iconDict[tag]!
+            return iconDict[leader]!
 
     }
 

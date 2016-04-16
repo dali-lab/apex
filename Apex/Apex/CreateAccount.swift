@@ -76,11 +76,7 @@ class CreateAccount: UIViewController {
                                                 }
                                                 else {
                                                     UserManager.uid = auth.uid
-<<<<<<< 2e377a057fd81c66e11bd11163715f55551a4b10
                                                     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "auth")
-=======
-                                                    NSUserDefaults.standardUserDefaults().setObject(true, forKey: "auth")
->>>>>>> hotfix create account
                                                 }
                                                 
                                         })
