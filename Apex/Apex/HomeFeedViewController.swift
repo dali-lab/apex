@@ -14,7 +14,8 @@ import Firebase
 // TRIP
 class TripClass {
     
-    static let ref = Firebase(url: "https://apexdatabase.firebaseio.com/trips")
+    static let ref = Firebase(url: "https://apexdatabase.firebaseio.com.firebaseio.com")
+    static let tripRef = Firebase(url: "https://apexdatabase.firebaseio.com/trips")
     
     // a Trip in the database MUST have these fields
     var name: String = ""
@@ -95,7 +96,7 @@ class TripClass {
     }
     
     class func getTrips(callback:(trips: [TripClass]) -> Void) {
-        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        tripRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             var trips = [TripClass]()
             print("getting trips: ")
             for trip in snapshot.children {
@@ -123,7 +124,37 @@ class TripClass {
                 print(error.description)
         })
     }
+    
+    class func getMyTrips(callback:(trips: [TripClass]) -> Void) {
+        tripRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            var trips = [TripClass]()
+            let uid = UserManager.uid
+            print("getting trips: ")
+            for trip in snapshot.children {
+                print(uid)
+                let members = trip.value.objectForKey("members") as? [String]
+                if (members != nil && members!.contains(uid)) {
+                    print(trip.value.objectForKey("name") as! String)
 
+                    let name = trip.value.objectForKey("name") as! String
+                    let leaders = trip.value.objectForKey("leaders") as! [String]
+                    let maxMembers = trip.value.objectForKey("maxMembers") as! Int
+                    let cost = trip.value.objectForKey("cost") as! Int
+                    let tags = trip.value.objectForKey("tags") as! [String]
+                    let lat = trip.value.objectForKey("lat") as! CGFloat
+                    let long = trip.value.objectForKey("long") as! CGFloat
+                    let description = trip.value.objectForKey("description") as! String
+                    let startTime = trip.value.objectForKey("startTime") as! Double
+                    let endTime = trip.value.objectForKey("endTime") as! Double
+                    
+                    trips.append(TripClass(name: name, leaders: leaders, maxMembers: maxMembers, cost: cost, tags: tags, lat: lat, long: long, members: members!, description: description, startTime: startTime, endTime: endTime))
+                }
+            }
+            callback(trips: trips)
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+    }
 }
 
 // UIViewController
@@ -143,13 +174,11 @@ class HomeFeedViewController: UIViewController {
         navBar!.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 22)!, NSForegroundColorAttributeName:UIColor.whiteColor()]
         
         self.navigationItem.title = "Apex"
-        
+                
         TripClass.getTrips(myfunc)
         
         tableView.estimatedRowHeight = 188
         tableView.rowHeight = UITableViewAutomaticDimension
-        
-        
     }
 
 
@@ -157,8 +186,7 @@ class HomeFeedViewController: UIViewController {
         tripArr = trips
         print("reloading database")
         tableView.reloadData()
-        
-        
+  
     }
     
     func iconMapping(tag:String) -> String {
