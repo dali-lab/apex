@@ -84,10 +84,16 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-Apex/Alamofire.framework"
+  install_framework "Pods-Apex/AlamofireImage.framework"
   install_framework "Pods-Apex/Firebase.framework"
+  install_framework "Pods-Apex/ImageSlideshow.framework"
   install_framework "Pods-Apex/SCLAlertView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-Apex/Alamofire.framework"
+  install_framework "Pods-Apex/AlamofireImage.framework"
   install_framework "Pods-Apex/Firebase.framework"
+  install_framework "Pods-Apex/ImageSlideshow.framework"
   install_framework "Pods-Apex/SCLAlertView.framework"
 fi

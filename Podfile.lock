@@ -1,13 +1,27 @@
 PODS:
+  - Alamofire (3.3.1)
+  - AlamofireImage (2.4.0):
+    - Alamofire (~> 3.3)
   - Firebase (2.5.1)
+  - ImageSlideshow (0.4.0):
+    - ImageSlideshow/Core (= 0.4.0)
+  - ImageSlideshow/Alamofire (0.4.0):
+    - AlamofireImage (~> 2.0)
+    - ImageSlideshow/Core
+  - ImageSlideshow/Core (0.4.0)
   - SCLAlertView (0.5.2)
 
 DEPENDENCIES:
   - Firebase (>= 2.5.0)
+  - ImageSlideshow (~> 0.4)
+  - ImageSlideshow/Alamofire
   - SCLAlertView
 
 SPEC CHECKSUMS:
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
   Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
+  ImageSlideshow: 0d3632bc0c2b4d3fff24a49ce4d3022af8238b03
   SCLAlertView: 66873759027a98f891b6ba9042d75db9082abca2
 
 COCOAPODS: 0.39.0
