@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
                         else {
                             UserManager.uid = auth.uid
                             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "auth")
+                            NSUserDefaults.standardUserDefaults().setObject(UserManager.uid, forKey: "userID")
                         }
         })
     }

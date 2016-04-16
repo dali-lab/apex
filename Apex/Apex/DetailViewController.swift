@@ -34,7 +34,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
     let regionRadius: CLLocationDistance = 10000
     
-    var tripObj = TripClass(name: "", leaders: [], maxMembers: 0, cost: 0, tags: [], lat: 0.0, long: 0.0, members: [], description: "", startTime: 0, endTime: 0)
+    var tripObj = TripClass(id: "", name: "", leaders: [], maxMembers: 0, cost: 0, tags: [], lat: 0.0, long: 0.0, members: [], description: "", startTime: 0, endTime: 0)
     
     func imageMapping(leader: String) -> String {
  
@@ -91,6 +91,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         
 
         updateDescription()
+        updateJoinButton()
         
         textDescription.userInteractionEnabled = false
         let fixedWidth = textDescription.frame.size.width
@@ -123,17 +124,21 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     @IBAction func joinGroup(sender: AnyObject) {
 //        let ref = Firebase(url: "https://apexdatabase.firebaseio.com/")
 //        ref.unauth()
-        if inTrip { // attempt to join group
+        if !inTrip { // attempt to join group
             print("joining")
             if tripObj.joinTrip(UserManager.uid) { // joined
+                inTrip = true
                 updateDescription()
+                updateJoinButton()
             } else {
                 
             }
         } else { // leave group
             print("leaving")
             if tripObj.leaveTrip(UserManager.uid) { // left
+                inTrip = false
                 updateDescription()
+                updateJoinButton()
             } else {
                 
             }
@@ -141,12 +146,13 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     }
     
     func updateJoinButton() {
-        if tripObj.members.contains(UserManager.uid) { // already in group
-            joinButton.titleLabel?.text = "Leave"
+        if tripObj.members.contains(UserManager.uid) {
             inTrip = true
+        }
+        if inTrip { // already in group
+            joinButton.setTitle("Leave", forState: .Normal)
         } else {
-            joinButton.titleLabel?.text = "Join"
-            inTrip = false
+            joinButton.setTitle("Join", forState: .Normal)
         }
     }
     
