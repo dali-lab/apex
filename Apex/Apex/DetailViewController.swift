@@ -37,7 +37,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tripTitle.text = tripObj.name + ", $" + String(tripObj.cost)
+        tripTitle.text = tripObj.name
         leader1Label.text = tripObj.leaders[0]
         if tripObj.leaders.count > 1 {
             leader2Label.text = tripObj.leaders[1]
@@ -112,7 +112,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     }
     
     func updateDescription() {
-        textDescription.text = tripObj.getRegistrationText() + "\n" + tripObj.description
+        textDescription.text = tripObj.getRegistrationText() + "\n\n" + tripObj.description
     }
     
     override func didReceiveMemoryWarning() {

@@ -185,8 +185,16 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lhw-H7-usO">
-                                        <rect key="frame" x="172" y="184" width="30" height="30"/>
-                                        <state key="normal" title="Join"/>
+                                        <rect key="frame" x="108" y="180" width="159" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="159" id="HKV-30-SIs"/>
+                                        </constraints>
+                                        <state key="normal" title="Join" backgroundImage="button">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="joinGroup:" destination="DHa-VI-JCJ" eventType="touchUpInside" id="cep-Ms-DBM"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_hiking" translatesAutoresizingMaskIntoConstraints="NO" id="D8n-kk-GL7">
                                         <rect key="frame" x="149" y="250" width="77" height="68"/>
@@ -236,12 +244,6 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EFD-TR-X6c">
-                                        <rect key="frame" x="0.0" y="522" width="375" height="158"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="158" id="0C5-CG-Wsn"/>
-                                        </constraints>
-                                    </mapView>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DMP-cz-cHE" customClass="ImageSlideshow" customModule="ImageSlideshow">
                                         <rect key="frame" x="0.0" y="690" width="375" height="189"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -263,13 +265,20 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EFD-TR-X6c">
+                                        <rect key="frame" x="0.0" y="524" width="375" height="158"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="158" id="0C5-CG-Wsn"/>
+                                        </constraints>
+                                    </mapView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Qqd-4r-EYZ" firstAttribute="centerX" secondItem="D8k-qm-JbO" secondAttribute="centerX" id="02e-uO-Vft"/>
                                     <constraint firstItem="Qqd-4r-EYZ" firstAttribute="leading" secondItem="D8n-kk-GL7" secondAttribute="trailing" constant="54" id="1vx-qc-q7J"/>
                                     <constraint firstItem="FTJ-Vy-k8O" firstAttribute="leading" secondItem="DOa-IU-4zp" secondAttribute="trailing" constant="39" id="401-pf-48l"/>
-                                    <constraint firstItem="Lhw-H7-usO" firstAttribute="top" secondItem="GNe-D4-O8H" secondAttribute="bottom" constant="13" id="4d5-wv-ic6"/>
+                                    <constraint firstItem="Lhw-H7-usO" firstAttribute="top" secondItem="GNe-D4-O8H" secondAttribute="bottom" constant="9" id="4d5-wv-ic6"/>
                                     <constraint firstAttribute="trailing" secondItem="D8k-qm-JbO" secondAttribute="trailing" constant="11" id="7ZK-Hh-Fzs"/>
+                                    <constraint firstAttribute="trailing" secondItem="DLo-kF-iB0" secondAttribute="trailing" constant="11" id="8n6-Cj-08b"/>
                                     <constraint firstItem="Lhw-H7-usO" firstAttribute="centerX" secondItem="ec4-dg-bv6" secondAttribute="centerX" id="ADh-Sn-xxf"/>
                                     <constraint firstItem="FTJ-Vy-k8O" firstAttribute="firstBaseline" secondItem="D8k-qm-JbO" secondAttribute="firstBaseline" id="CTA-do-J2C"/>
                                     <constraint firstItem="FTJ-Vy-k8O" firstAttribute="top" secondItem="D8n-kk-GL7" secondAttribute="bottom" constant="8" symbolic="YES" id="E1S-gp-E1u"/>
@@ -281,22 +290,23 @@
                                     <constraint firstItem="DOa-IU-4zp" firstAttribute="firstBaseline" secondItem="FTJ-Vy-k8O" secondAttribute="firstBaseline" id="OFi-vU-kjn"/>
                                     <constraint firstItem="D8n-kk-GL7" firstAttribute="leading" secondItem="fSf-Yw-SVs" secondAttribute="trailing" constant="54" id="Ojl-Q6-FuZ"/>
                                     <constraint firstItem="c5C-q2-qLT" firstAttribute="leading" secondItem="ec4-dg-bv6" secondAttribute="leading" constant="18" id="QZJ-Se-MhA"/>
+                                    <constraint firstItem="Qqd-4r-EYZ" firstAttribute="top" secondItem="GNe-D4-O8H" secondAttribute="bottom" constant="79" id="QqZ-AM-cok"/>
                                     <constraint firstItem="EFD-TR-X6c" firstAttribute="trailing" secondItem="DMP-cz-cHE" secondAttribute="trailing" id="Qy0-DP-1aQ"/>
                                     <constraint firstItem="FTJ-Vy-k8O" firstAttribute="baseline" secondItem="D8k-qm-JbO" secondAttribute="baseline" id="RDo-jV-kmZ"/>
                                     <constraint firstItem="DOa-IU-4zp" firstAttribute="leading" secondItem="ec4-dg-bv6" secondAttribute="leading" constant="10" id="RYp-2v-E63"/>
                                     <constraint firstItem="fSf-Yw-SVs" firstAttribute="centerX" secondItem="DOa-IU-4zp" secondAttribute="centerX" id="ScY-Nn-TCn"/>
+                                    <constraint firstItem="DLo-kF-iB0" firstAttribute="leading" secondItem="ec4-dg-bv6" secondAttribute="leading" constant="18" id="ShO-1L-nXe"/>
                                     <constraint firstItem="DOa-IU-4zp" firstAttribute="top" secondItem="fSf-Yw-SVs" secondAttribute="bottom" constant="8" symbolic="YES" id="VW6-FK-2sD"/>
                                     <constraint firstItem="EFD-TR-X6c" firstAttribute="trailing" secondItem="GNe-D4-O8H" secondAttribute="trailing" id="WQx-U2-gsD"/>
                                     <constraint firstItem="DLo-kF-iB0" firstAttribute="top" secondItem="sgj-Hy-11F" secondAttribute="bottom" constant="-1" id="WzH-So-3RG"/>
                                     <constraint firstItem="fSf-Yw-SVs" firstAttribute="leading" secondItem="sgj-Hy-11F" secondAttribute="leading" id="XJs-Fv-uNv"/>
                                     <constraint firstItem="Pey-ro-xxS" firstAttribute="leading" secondItem="ec4-dg-bv6" secondAttribute="leadingMargin" id="YeI-KH-Pcq"/>
-                                    <constraint firstItem="D8n-kk-GL7" firstAttribute="top" secondItem="Lhw-H7-usO" secondAttribute="bottom" constant="36" id="aAG-v1-4Ld"/>
+                                    <constraint firstItem="D8n-kk-GL7" firstAttribute="top" secondItem="Lhw-H7-usO" secondAttribute="bottom" constant="40" id="aAG-v1-4Ld"/>
                                     <constraint firstItem="sgj-Hy-11F" firstAttribute="top" secondItem="DOa-IU-4zp" secondAttribute="bottom" constant="19" id="bHU-8w-Fdd"/>
                                     <constraint firstItem="EFD-TR-X6c" firstAttribute="leading" secondItem="DMP-cz-cHE" secondAttribute="leading" id="bMM-cf-ZN5"/>
-                                    <constraint firstItem="Lhw-H7-usO" firstAttribute="top" secondItem="Pey-ro-xxS" secondAttribute="bottom" constant="22" id="dQ7-sW-crg"/>
+                                    <constraint firstItem="Lhw-H7-usO" firstAttribute="top" secondItem="Pey-ro-xxS" secondAttribute="bottom" constant="18" id="dQ7-sW-crg"/>
                                     <constraint firstAttribute="bottom" secondItem="DMP-cz-cHE" secondAttribute="bottom" constant="72" id="eA0-HQ-dTi"/>
                                     <constraint firstItem="fSf-Yw-SVs" firstAttribute="top" secondItem="D8n-kk-GL7" secondAttribute="top" id="eVn-fV-htq"/>
-                                    <constraint firstItem="EFD-TR-X6c" firstAttribute="top" secondItem="DLo-kF-iB0" secondAttribute="bottom" constant="13" id="hcI-cT-zyc"/>
                                     <constraint firstItem="D8k-qm-JbO" firstAttribute="leading" secondItem="FTJ-Vy-k8O" secondAttribute="trailing" constant="39" id="ike-os-xvO"/>
                                     <constraint firstItem="D8n-kk-GL7" firstAttribute="top" secondItem="Qqd-4r-EYZ" secondAttribute="top" id="lks-42-68F"/>
                                     <constraint firstItem="GNe-D4-O8H" firstAttribute="leading" secondItem="ec4-dg-bv6" secondAttribute="leading" id="lsd-8I-203"/>
@@ -388,6 +398,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="button" width="366" height="66"/>
         <image name="icon_hiking" width="64" height="64"/>
         <image name="picture_mountain_1" width="429" height="268"/>
     </resources>
