@@ -23,6 +23,7 @@
 		C65CD9A01CC2A8310042D080 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65CD99F1CC2A8310042D080 /* DetailViewController.swift */; };
 		E8E0F0D71CC288210002C5EA /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8E0F0D51CC288210002C5EA /* CreateAccount.storyboard */; };
 		E8E0F0DB1CC28BC50002C5EA /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0F0DA1CC28BC50002C5EA /* CreateAccount.swift */; };
+		E8E0F0DD1CC2C5A10002C5EA /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0F0DC1CC2C5A10002C5EA /* UserManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		C65CD99F1CC2A8310042D080 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E8E0F0D61CC288210002C5EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateAccount.storyboard; sourceTree = "<group>"; };
 		E8E0F0DA1CC28BC50002C5EA /* CreateAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
+		E8E0F0DC1CC2C5A10002C5EA /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				89787C9C1CC270C000721106 /* AppDelegate.swift */,
 				89787C9E1CC270C000721106 /* ViewController.swift */,
 				E8E0F0DA1CC28BC50002C5EA /* CreateAccount.swift */,
+				E8E0F0DC1CC2C5A10002C5EA /* UserManager.swift */,
 				89787CA01CC270C000721106 /* Main.storyboard */,
 				9683A2561CC28EEB00E57DBB /* LoginViewController.swift */,
 				E8E0F0D51CC288210002C5EA /* CreateAccount.storyboard */,
@@ -252,6 +255,7 @@
 				C65CD99C1CC27FEB0042D080 /* HomeFeedViewController.swift in Sources */,
 				89B4260D1CC2A61D00F72EAD /* Trip.swift in Sources */,
 				89B4260B1CC2895800F72EAD /* Calendar.swift in Sources */,
+				E8E0F0DD1CC2C5A10002C5EA /* UserManager.swift in Sources */,
 				C65CD9A01CC2A8310042D080 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

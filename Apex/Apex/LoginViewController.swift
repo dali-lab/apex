@@ -37,7 +37,9 @@ class LoginViewController: UIViewController {
                             SCLAlertView().showError("Failed to log in", subTitle: "Please enter your correct email or password and try again.")
                         }
                         else {
-                            
+                            //print(auth.uid)
+                            UserManager.uid = auth.uid
+                            //print(UserManager.uid)
                         }
         })
     }

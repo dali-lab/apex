@@ -76,7 +76,9 @@ class CreateAccount: UIViewController {
                                                     // error
                                                 }
                                                 else {
-                                                    print(auth.uid)
+                                                    //print(auth.uid)
+                                                    UserManager.uid = auth.uid
+                                                    //print(UserManager.uid)
                                                 }
                                                 
                                         })
