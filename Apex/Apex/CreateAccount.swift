@@ -22,8 +22,7 @@ class CreateAccount: UIViewController {
     let backToLogin = "backToLogin"
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        super.viewDidLoad()        
     }
 
     override func viewDidAppear(animated: Bool) {

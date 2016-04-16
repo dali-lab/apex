@@ -14,7 +14,7 @@ import Firebase
 // TRIP
 class TripClass {
     
-    static let ref = Firebase(url: "https://apexdatabase.firebaseio.com.firebaseio.com")
+    static let ref = Firebase(url: "https://apexdatabase.firebaseio.com")
     static let tripRef = Firebase(url: "https://apexdatabase.firebaseio.com/trips")
     
     // a Trip in the database MUST have these fields
@@ -48,10 +48,14 @@ class TripClass {
         self.endTime = endTime
     }
     
+    
+    
     // returns true if user was able to join trip
     func joinTrip(userID: String) -> Bool {
+        let tripRef = Firebase(url: "https://apexdatabase.firebaseio.com/trips").childByAppendingPath(name)
         if getRemainingSpots() < maxMembers {
             members.append(userID)
+//            tripRef.updateChildValues(members)
             return true
         } else {
             return false

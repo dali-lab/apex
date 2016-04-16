@@ -1,1 +1,7 @@
-# apexuse `Apex.xcworkspace`
+# apex
+
+### Installation
+
+```pod install```
+
+use `Apex.xcworkspace`
