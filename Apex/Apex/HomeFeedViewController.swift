@@ -14,8 +14,8 @@ class HomeFeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.estimatedRowHeight = 208
-        self.tableView.rowHeight = (UITableViewAutomaticDimension)
+//        self.tableView.estimatedRowHeight = 208
+//        self.tableView.rowHeight = (UITableViewAutomaticDimension)
 
         // Do any additional setup after loading the view.
     }
@@ -40,16 +40,31 @@ class HomeFeedViewController: UIViewController {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FeedCell", forIndexPath: indexPath) as! FeedTableViewCell
         
+        cell.picture.image = UIImage(named: "picture_mountain_1")
+        
+//        cell.picture.contentMode = .ScaleAspectFill
+        
         
         return cell
     }
-//    
-//    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        if section == 0 { return CGFloat.min }
-//        return 6
-//    }
-//    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return CGFloat.min
-//    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        return 208;//Choose your custom row height
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 { return CGFloat.min }
+        return 6
+    }
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.min
+    }
+    
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
+        header.contentView.backgroundColor = UIColor.lightTextColor() //make the background color light blue
+    }
 
+    
 }
