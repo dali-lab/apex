@@ -229,11 +229,16 @@ class HomeFeedViewController: UIViewController {
 
         let trip = tripArr[indexPath.section]
         
+        
         cell.picture.image = UIImage(named: "picture_mountain_1")
         cell.title.text = trip.name
         cell.registration.text = trip.getRegistrationText()
 
+        cell.descriptionText.numberOfLines = 0
+
         cell.descriptionText.text = trip.description
+        
+//        cell.descriptionText.text = "1\n2\n3"
         
         
         let startDate = NSDate(timeIntervalSince1970: trip.startTime)
