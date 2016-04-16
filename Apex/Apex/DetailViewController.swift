@@ -32,7 +32,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
     let regionRadius: CLLocationDistance = 1000
     
-    var tripObj = TripClass(name: "", leaders: [], maxMembers: 0, cost: 0, tags: [], lat: 0.0, long: 0.0, members: [])
+    var tripObj = TripClass(name: "", leaders: [], maxMembers: 0, cost: 0, tags: [], lat: 0.0, long: 0.0, members: [], description: "", startTime: 0, endTime: 0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +66,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         
         slideshow.setImageInputs([AlamofireSource(urlString: "https://thumbs.dreamstime.com/z/flysch-rocks-barrika-beach-sunset-58426273.jpg")!, AlamofireSource(urlString: "https://thumbs.dreamstime.com/z/man-surfboard-beautiful-foggy-beach-boy-running-golden-sunrise-daytona-florida-58532550.jpg")!, AlamofireSource(urlString: "https://thumbs.dreamstime.com/z/woman-putting-mask-her-face-black-cloak-sitting-ground-58291716.jpg")!])
         
-        let recognizer = UITapGestureRecognizer(target: self, action: "click")
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(DetailViewController.click))
         slideshow.addGestureRecognizer(recognizer)
     }
     
