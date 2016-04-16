@@ -16,18 +16,17 @@ class CreateAccount: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dashTextField: UITextField!
     
+    let myRootRef = Firebase(url:"https://apexdatabase.firebaseio.com")
+    let showTabsFromSignup = "showTabsFromSignup"
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        // Create a reference to a Firebase location
-        var myRootRef = Firebase(url:"https://apexdatabase.firebaseio.com")
-        
+
     }
 
     @IBAction func signupButton(sender: UIButton) {
-        var emailin:NSString = emailTextField.text! as NSString
-        var passwordin:NSString = passwordTextField.text! as NSString
+        let emailin:NSString = emailTextField.text! as NSString
+        let passwordin:NSString = passwordTextField.text! as NSString
         
         var alertView:UIAlertView = UIAlertView()
         alertView.title = "Sign up Failed!"
@@ -45,9 +44,6 @@ class CreateAccount: UIViewController {
             alertView.addButtonWithTitle("OK")
             alertView.show()
         } else {
-            // Create a reference to a Firebase location
-            var myRootRef = Firebase(url:"https://apexdatabase.firebaseio.com")
-            
             // Create user
             myRootRef.createUser(emailin as String, password: passwordin as String,
                                  withValueCompletionBlock: { error, result in
@@ -59,6 +55,11 @@ class CreateAccount: UIViewController {
                                         print("Successfully created user account with uid: \(uid)")
                                     }
             })
+
+            myRootRef.authUser(emailin as String, password: passwordin as String,
+                         withCompletionBlock: { (error, auth) in
+                            
+            })
         }
     }
     
@@ -67,6 +68,14 @@ class CreateAccount: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        myRootRef.observeAuthEventWithBlock { (authData) -> Void in
+            if authData != nil {
+                self.performSegueWithIdentifier(self.showTabsFromSignup, sender: nil)
+            }
+        }
+    }
 }
 
