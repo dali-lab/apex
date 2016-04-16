@@ -21,12 +21,10 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func onClickLogin(sender: AnyObject) {
@@ -36,9 +34,8 @@ class LoginViewController: UIViewController {
                             SCLAlertView().showError("Failed to log in", subTitle: "Please enter your correct email or password and try again.")
                         }
                         else {
-                            //print(auth.uid)
                             UserManager.uid = auth.uid
-                            //print(UserManager.uid)
+                            NSUserDefaults.standardUserDefaults().setObject(auth, forKey: "auth")
                         }
         })
     }

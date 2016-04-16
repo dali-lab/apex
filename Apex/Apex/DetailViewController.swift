@@ -16,6 +16,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var headerImage: UIImageView!
     @IBOutlet weak var tripTitle: UILabel!
     @IBOutlet weak var joinButton: UIButton!
+    var inTrip = false
     
     @IBOutlet weak var leader1Image: UIImageView!
     @IBOutlet weak var leader1Label: UILabel!
@@ -36,7 +37,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tripTitle.text = tripObj.name + ", $" + String(tripObj.cost)
+        tripTitle.text = tripObj.name
         leader1Label.text = tripObj.leaders[0]
         if tripObj.leaders.count > 1 {
             leader2Label.text = tripObj.leaders[1]
@@ -52,7 +53,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         }
         
         
-        textDescription.text = "lskdjf l;lskdj flkdjflsjf lksjasldkjf lakjsd lf;kajsd lfjs ldfkaj s;ldkfj slkdjf alskdjf a;lskdjf lskjdf laksjd flksjdf;lskdjf al;skdjf laksjdflaksdjflksj fl;aksdjf\n ksjdkf \n sdjfs\nsdjkfskd fj\nkdjsf skdj \nsdkfj sdkfj\nsdjkf sj\nsdkfj \nsdkfjs \n kjds f\ns dfkjsd \ns dkfjs d\nsdkf jsdkf d ;lksjf "
+
+        updateDescription()
         
         let fixedWidth = textDescription.frame.size.width
         textDescription.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
@@ -67,14 +69,52 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         let initialLocation = CLLocation(latitude: Double(tripObj.lat), longitude: Double(tripObj.long))
         dispatch_async(dispatch_get_main_queue()) {
             self.centerMapOnLocation(initialLocation)
+            let myHomePin = MKPointAnnotation()
+            myHomePin.coordinate = initialLocation.coordinate
+            myHomePin.title = self.tripObj.name
+            self.mapView.addAnnotation(myHomePin)
         }
 //        mapView.userInteractionEnabled = false
         
         setUpSlideShow()
 
         // Do any additional setup after loading the view.
+        
+        updateJoinButton()
     }
-
+    
+    @IBAction func joinGroup(sender: AnyObject) {
+        if inTrip { // attempt to join group
+            print("joining")
+            if tripObj.joinTrip(UserManager.uid) { // joined
+                updateDescription()
+            } else {
+                
+            }
+        } else { // leave group
+            print("leaving")
+            if tripObj.leaveTrip(UserManager.uid) { // left
+                updateDescription()
+            } else {
+                
+            }
+        }
+    }
+    
+    func updateJoinButton() {
+        if tripObj.members.contains(UserManager.uid) { // already in group
+            joinButton.titleLabel?.text = "Leave"
+            inTrip = true
+        } else {
+            joinButton.titleLabel?.text = "Join"
+            inTrip = false
+        }
+    }
+    
+    func updateDescription() {
+        textDescription.text = tripObj.getRegistrationText() + "\n\n" + tripObj.description
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -110,6 +150,31 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    
+    // add annotation to the map
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if (annotation is MKUserLocation) {
+            //if annotation is not an MKPointAnnotation (eg. MKUserLocation),
+            //return nil so map draws default view for it (eg. blue dot)...
+            return nil
+        }
+        
+        let reuseId = "test"
+        
+        var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+        if anView == nil {
+            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+//            anView.image = UIImage(named:"xaxas")
+            anView!.canShowCallout = true
+        }
+        else {
+            //we are re-using a view, update its annotation reference...
+            anView!.annotation = annotation
+        }
+        
+        return anView
     }
     
 

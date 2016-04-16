@@ -14,7 +14,8 @@ import Firebase
 // TRIP
 class TripClass {
     
-    static let ref = Firebase(url: "https://apexdatabase.firebaseio.com/trips")
+    static let ref = Firebase(url: "https://apexdatabase.firebaseio.com.firebaseio.com")
+    static let tripRef = Firebase(url: "https://apexdatabase.firebaseio.com/trips")
     
     // a Trip in the database MUST have these fields
     var name: String = ""
@@ -47,12 +48,55 @@ class TripClass {
         self.endTime = endTime
     }
     
+    // returns true if user was able to join trip
+    func joinTrip(userID: String) -> Bool {
+        if getRemainingSpots() < maxMembers {
+            members.append(userID)
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    // returns true if the user was able to leave the trip
+    func leaveTrip(userID: String) -> Bool {
+        var leftTrip = false
+        for index in 1...members.count {
+            if members[index-1] == userID {
+                members.removeAtIndex(index)
+                leftTrip = true
+            }
+        }
+        if leftTrip == false {
+            print("unable to leave the trip even though i'm supposed to be in there")
+        }
+        
+        return leftTrip
+    }
+    
     func getRemainingSpots() -> Int {
         return maxMembers - leaders.count - members.count
     }
     
+    func getRegistrationText() -> String {
+        var string = ""
+        if self.getRemainingSpots() == 0 { // remaining
+            string = "Trip is full"
+        } else {
+            string = String(self.getRemainingSpots()) + " " + (self.getRemainingSpots() == 0 ? "spot": "spots") + " remaining"
+        }
+        
+        if self.cost == 0 { //cost
+            string = string + ", Free"
+        } else {
+            string = string + ", $" + String(self.cost)
+        }
+        
+        return string
+    }
+    
     class func getTrips(callback:(trips: [TripClass]) -> Void) {
-        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        tripRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             var trips = [TripClass]()
             print("getting trips: ")
             for trip in snapshot.children {
@@ -80,7 +124,37 @@ class TripClass {
                 print(error.description)
         })
     }
+    
+    class func getMyTrips(callback:(trips: [TripClass]) -> Void) {
+        tripRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            var trips = [TripClass]()
+            let uid = UserManager.uid
+            print("getting trips: ")
+            for trip in snapshot.children {
+                print(uid)
+                let members = trip.value.objectForKey("members") as? [String]
+                if (members != nil && members!.contains(uid)) {
+                    print(trip.value.objectForKey("name") as! String)
 
+                    let name = trip.value.objectForKey("name") as! String
+                    let leaders = trip.value.objectForKey("leaders") as! [String]
+                    let maxMembers = trip.value.objectForKey("maxMembers") as! Int
+                    let cost = trip.value.objectForKey("cost") as! Int
+                    let tags = trip.value.objectForKey("tags") as! [String]
+                    let lat = trip.value.objectForKey("lat") as! CGFloat
+                    let long = trip.value.objectForKey("long") as! CGFloat
+                    let description = trip.value.objectForKey("description") as! String
+                    let startTime = trip.value.objectForKey("startTime") as! Double
+                    let endTime = trip.value.objectForKey("endTime") as! Double
+                    
+                    trips.append(TripClass(name: name, leaders: leaders, maxMembers: maxMembers, cost: cost, tags: tags, lat: lat, long: long, members: members!, description: description, startTime: startTime, endTime: endTime))
+                }
+            }
+            callback(trips: trips)
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+    }
 }
 
 // UIViewController
@@ -100,13 +174,11 @@ class HomeFeedViewController: UIViewController {
         navBar!.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 22)!, NSForegroundColorAttributeName:UIColor.whiteColor()]
         
         self.navigationItem.title = "Apex"
-        
+                
         TripClass.getTrips(myfunc)
         
         tableView.estimatedRowHeight = 188
         tableView.rowHeight = UITableViewAutomaticDimension
-        
-        
     }
 
 
@@ -114,8 +186,7 @@ class HomeFeedViewController: UIViewController {
         tripArr = trips
         print("reloading database")
         tableView.reloadData()
-        
-        
+  
     }
     
     func iconMapping(tag:String) -> String {
@@ -161,17 +232,7 @@ class HomeFeedViewController: UIViewController {
         
         cell.picture.image = UIImage(named: "picture_mountain_1")
         cell.title.text = trip.name
-        if trip.getRemainingSpots() == 0 { // remaining
-            cell.registration.text = "Trip is full"
-        } else {
-            cell.registration.text = String(trip.getRemainingSpots()) + " " + (trip.getRemainingSpots() == 0 ? "spot": "spots") + " remaining"
-        }
-        
-        if trip.cost == 0 { //cost
-            cell.registration.text = cell.registration.text! + ", Free"
-        } else {
-            cell.registration.text = cell.registration.text! + ", $" + String(trip.cost)
-        }
+        cell.registration.text = trip.getRegistrationText()
 
         cell.descriptionText.numberOfLines = 0
 
