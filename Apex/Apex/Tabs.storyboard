@@ -175,7 +175,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ec4-dg-bv6">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ec4-dg-bv6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="951"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture_mountain_1" translatesAutoresizingMaskIntoConstraints="NO" id="GNe-D4-O8H">
@@ -233,28 +233,19 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EFD-TR-X6c">
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EFD-TR-X6c">
                                         <rect key="frame" x="0.0" y="522" width="375" height="158"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="158" id="0C5-CG-Wsn"/>
                                         </constraints>
                                     </mapView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DMP-cz-cHE" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DMP-cz-cHE" customClass="ImageSlideshow" customModule="ImageSlideshow">
                                         <rect key="frame" x="0.0" y="690" width="375" height="189"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="189" id="0td-YX-0HF"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multi Line Text Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcL-Rr-JSE">
-                                        <rect key="frame" x="8" y="391" width="356" height="124"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="124" id="Fuz-53-T4B"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_hiking" translatesAutoresizingMaskIntoConstraints="NO" id="fSf-Yw-SVs">
                                         <rect key="frame" x="18" y="250" width="77" height="68"/>
                                         <constraints>
@@ -268,12 +259,10 @@
                                     <constraint firstItem="Qqd-4r-EYZ" firstAttribute="leading" secondItem="D8n-kk-GL7" secondAttribute="trailing" constant="54" id="1vx-qc-q7J"/>
                                     <constraint firstItem="FTJ-Vy-k8O" firstAttribute="leading" secondItem="DOa-IU-4zp" secondAttribute="trailing" constant="39" id="401-pf-48l"/>
                                     <constraint firstItem="Lhw-H7-usO" firstAttribute="top" secondItem="GNe-D4-O8H" secondAttribute="bottom" constant="13" id="4d5-wv-ic6"/>
-                                    <constraint firstItem="KcL-Rr-JSE" firstAttribute="leading" secondItem="ec4-dg-bv6" secondAttribute="leadingMargin" id="BoU-Ya-q0o"/>
                                     <constraint firstItem="FTJ-Vy-k8O" firstAttribute="firstBaseline" secondItem="D8k-qm-JbO" secondAttribute="firstBaseline" id="CTA-do-J2C"/>
                                     <constraint firstItem="FTJ-Vy-k8O" firstAttribute="top" secondItem="D8n-kk-GL7" secondAttribute="bottom" constant="8" symbolic="YES" id="E1S-gp-E1u"/>
                                     <constraint firstItem="Lhw-H7-usO" firstAttribute="centerX" secondItem="ec4-dg-bv6" secondAttribute="centerX" id="FE1-QQ-rbF"/>
                                     <constraint firstItem="c5C-q2-qLT" firstAttribute="leading" secondItem="fSf-Yw-SVs" secondAttribute="leading" id="GJx-zW-J9z"/>
-                                    <constraint firstItem="KcL-Rr-JSE" firstAttribute="top" secondItem="sgj-Hy-11F" secondAttribute="bottom" constant="4" id="Iqw-Ki-PFq"/>
                                     <constraint firstItem="Pey-ro-xxS" firstAttribute="leading" secondItem="ec4-dg-bv6" secondAttribute="leading" constant="8" id="Izy-d0-kVZ"/>
                                     <constraint firstAttribute="trailing" secondItem="D8k-qm-JbO" secondAttribute="trailing" constant="11" id="J1d-6F-TP7"/>
                                     <constraint firstAttribute="trailing" secondItem="GNe-D4-O8H" secondAttribute="trailing" id="LDi-dX-CRm"/>
@@ -295,9 +284,7 @@
                                     <constraint firstItem="DOa-IU-4zp" firstAttribute="leading" secondItem="ec4-dg-bv6" secondAttribute="leading" constant="10" id="bhA-el-lgu"/>
                                     <constraint firstItem="Lhw-H7-usO" firstAttribute="top" secondItem="Pey-ro-xxS" secondAttribute="bottom" constant="22" id="dQ7-sW-crg"/>
                                     <constraint firstItem="fSf-Yw-SVs" firstAttribute="top" secondItem="D8n-kk-GL7" secondAttribute="top" id="eVn-fV-htq"/>
-                                    <constraint firstItem="D8k-qm-JbO" firstAttribute="trailing" secondItem="KcL-Rr-JSE" secondAttribute="trailing" id="hwj-2Z-8Kb"/>
                                     <constraint firstItem="D8k-qm-JbO" firstAttribute="leading" secondItem="FTJ-Vy-k8O" secondAttribute="trailing" constant="39" id="ike-os-xvO"/>
-                                    <constraint firstItem="EFD-TR-X6c" firstAttribute="top" secondItem="KcL-Rr-JSE" secondAttribute="bottom" constant="7" id="jmm-H6-6U0"/>
                                     <constraint firstItem="c5C-q2-qLT" firstAttribute="leading" secondItem="ec4-dg-bv6" secondAttribute="leading" constant="18" id="jn2-rA-ucO"/>
                                     <constraint firstItem="D8n-kk-GL7" firstAttribute="top" secondItem="Qqd-4r-EYZ" secondAttribute="top" id="lks-42-68F"/>
                                     <constraint firstItem="fSf-Yw-SVs" firstAttribute="top" secondItem="c5C-q2-qLT" secondAttribute="bottom" constant="18" id="lu7-tk-zci"/>
@@ -333,7 +320,6 @@
                         <outlet property="leader3Label" destination="D8k-qm-JbO" id="0Ef-hn-Hmk"/>
                         <outlet property="mapView" destination="EFD-TR-X6c" id="RAd-GA-OFS"/>
                         <outlet property="slideshow" destination="DMP-cz-cHE" id="zGd-Js-Ge2"/>
-                        <outlet property="tripDescription" destination="KcL-Rr-JSE" id="bU2-Xy-QCi"/>
                         <outlet property="tripTitle" destination="Pey-ro-xxS" id="iUa-9S-vz0"/>
                     </connections>
                 </viewController>
