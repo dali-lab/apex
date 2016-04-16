@@ -72,11 +72,17 @@ class TripClass {
     func leaveTrip(userID: String) -> Bool {
         let tripRef = Firebase(url: "https://apexdatabase.firebaseio.com/trips").childByAppendingPath(id).childByAppendingPath("members")
         var leftTrip = false
-        for index in 1...members.count {
-            if members[index-1] == userID {
-                members.removeAtIndex(index-1)
-                leftTrip = true
+        if members.count != 0 {
+            
+            for index in 0...members.count-1 {
+                print("count" , String(members.count))
+                print(index)
+                if members[index] == userID {
+                    members.removeAtIndex(index)
+                    leftTrip = true
+                }
             }
+            
         }
         var dict = [String: String]()
         if members.count == 0 {
