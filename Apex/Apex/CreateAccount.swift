@@ -32,20 +32,19 @@ class CreateAccount: UIViewController {
         
         if (emailin.isEqualToString("") || passwordin.isEqualToString("") || dashin.isEqualToString("") || namein.isEqualToString("")) {
             
-            var alertView = UIAlertView()
+            let alertView = UIAlertView()
             alertView.title = "Sign up Failed!"
             alertView.message = "Please fill in all textfields"
             alertView.delegate = self
             alertView.addButtonWithTitle("OK")
             alertView.show()
+            
         } else {
             // Create user
-            print("OK")
             myRootRef.createUser(emailin as String, password: passwordin as String, withValueCompletionBlock: { error, result in
                                     if error != nil {
                                         // There was an error creating the account
-                                        var alertView:UIAlertView = UIAlertView()
-                                        alertView = UIAlertView()
+                                        let alertView:UIAlertView = UIAlertView()
                                         alertView.title = "Sign up Failed!"
                                         alertView.message = "Please enter valid email address"
                                         alertView.delegate = self
@@ -64,9 +63,9 @@ class CreateAccount: UIViewController {
             
             // Create user node
             // Create a reference to the users root node
-            var userRootRef = Firebase(url:"https://apexdatabase.firebaseio.com/users")
-            var userRef = userRootRef.childByAutoId()
-            var userValue = ["name": namein as String, "dash": dashin as String]
+            let userRootRef = Firebase(url:"https://apexdatabase.firebaseio.com/users")
+            let userRef = userRootRef.childByAutoId()
+            let userValue = ["name": namein as String, "dash": dashin as String]
             userRef.updateChildValues(userValue);
             
         }
