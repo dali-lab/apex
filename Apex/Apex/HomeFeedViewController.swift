@@ -79,8 +79,12 @@ class TripClass {
             }
         }
         var dict = [String: String]()
-        for index in 1...members.count {
-            dict[String(index-1)] = members[index-1]
+        if members.count == 0 {
+            
+        } else {
+            for index in 1...members.count {
+                dict[String(index-1)] = members[index-1]
+            }
         }
         tripRef.setValue(dict)
         if leftTrip == false {
