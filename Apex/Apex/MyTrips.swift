@@ -29,7 +29,7 @@ class MyTrips: UIViewController {
         
         self.navigationItem.title = "Apex"
         
-        TripClass.getTrips(myfunc)
+        TripClass.getMyTrips(myfunc)
         
         tableView.estimatedRowHeight = 188
         tableView.rowHeight = UITableViewAutomaticDimension
