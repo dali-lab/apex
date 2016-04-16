@@ -24,6 +24,16 @@ class CreateAccount: UIViewController {
         
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        myRootRef.observeAuthEventWithBlock { (authData) -> Void in
+            if authData != nil {
+                self.performSegueWithIdentifier(self.showTabsFromSignup, sender: nil)
+            }
+        }
+    }
+    
     @IBAction func signupClick(sender: UIButton) {
         let emailin:NSString = emailTextField.text! as NSString
         let passwordin:NSString = passwordTextField.text! as NSString
@@ -47,26 +57,35 @@ class CreateAccount: UIViewController {
                                         var alertView:UIAlertView = UIAlertView()
                                         alertView = UIAlertView()
                                         alertView.title = "Sign up Failed!"
-                                        alertView.message = "Please enter valid email address"
+                                        alertView.message = "Please try again"
                                         alertView.delegate = self
                                         alertView.addButtonWithTitle("OK")
                                         alertView.show()
                                     } else {
                                         let uid = result["uid"] as? String
                                         print("Successfully created user account with uid: \(uid)")
+                             
+                                        self.myRootRef.authUser(emailin as String, password: passwordin as String,
+                                            withCompletionBlock: { (error, auth) in
+                                                if error != nil {
+                                                    // error
+                                                }
+                                                else {
+                                                    print(auth.uid)
+                                                }
+                                                
+                                        })
                                     }
             })
 
-            myRootRef.authUser(emailin as String, password: passwordin as String,
-                         withCompletionBlock: { (error, auth) in
-                            
-            })
+            print(emailin)
+            print(passwordin)
             
             // Create user node
             // Create a reference to the users root node
-            var userRootRef = Firebase(url:"https://apexdatabase.firebaseio.com/users")
-            var userRef = userRootRef.childByAutoId()
-            var userValue = ["name": namein as String, "dash": dashin as String]
+            let userRootRef = Firebase(url:"https://apexdatabase.firebaseio.com/users")
+            let userRef = userRootRef.childByAutoId()
+            let userValue = ["name": namein as String, "dash": dashin as String]
             userRef.updateChildValues(userValue);
             
         }
@@ -76,16 +95,6 @@ class CreateAccount: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        myRootRef.observeAuthEventWithBlock { (authData) -> Void in
-            if authData != nil {
-                self.performSegueWithIdentifier(self.showTabsFromSignup, sender: nil)
-            }
-        }
     }
 }
 
