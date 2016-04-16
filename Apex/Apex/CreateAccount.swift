@@ -40,7 +40,7 @@ class CreateAccount: UIViewController {
         let passwordin:NSString = passwordTextField.text! as NSString
         let dashin:NSString = dashTextField.text! as NSString
         let namein:NSString = nameTextField.text! as NSString
-        
+
         if (emailin.isEqualToString("")) {
             SCLAlertView().showError("Sign Up Failed", subTitle: "Please enter an email and try again")
         } else if (passwordin.isEqualToString("")) {
@@ -51,12 +51,10 @@ class CreateAccount: UIViewController {
             SCLAlertView().showError("Sign Up Failed", subTitle: "Please enter your full name and try again")
         } else {
             // Create user
-            print("OK")
             myRootRef.createUser(emailin as String, password: passwordin as String, withValueCompletionBlock: { error, result in
                                     if error != nil {
                                         // There was an error creating the account
-                                        var alertView:UIAlertView = UIAlertView()
-                                        alertView = UIAlertView()
+                                        let alertView:UIAlertView = UIAlertView()
                                         alertView.title = "Sign up Failed!"
                                         alertView.message = "Please try again"
                                         alertView.delegate = self
@@ -65,6 +63,12 @@ class CreateAccount: UIViewController {
                                     } else {
                                         let uid = result["uid"] as? String
                                         print("Successfully created user account with uid: \(uid)")
+                                        // Create user node
+                                        // Create a reference to the users root node
+                                        let userRootRef = Firebase(url:"https://apexdatabase.firebaseio.com/users")
+                                        let userRef = userRootRef.childByAppendingPath(uid)
+                                        let userValue = ["name": namein as String, "dash": dashin as String]
+                                        userRef.updateChildValues(userValue);
                              
                                         self.myRootRef.authUser(emailin as String, password: passwordin as String,
                                             withCompletionBlock: { (error, auth) in
@@ -78,16 +82,6 @@ class CreateAccount: UIViewController {
                                         })
                                     }
             })
-
-            print(emailin)
-            print(passwordin)
-            
-            // Create user node
-            // Create a reference to the users root node
-            let userRootRef = Firebase(url:"https://apexdatabase.firebaseio.com/users")
-            let userRef = userRootRef.childByAutoId()
-            let userValue = ["name": namein as String, "dash": dashin as String]
-            userRef.updateChildValues(userValue);
             
         }
 
