@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		89787C9D1CC270C000721106 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89787C9C1CC270C000721106 /* AppDelegate.swift */; };
 		89787C9F1CC270C000721106 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89787C9E1CC270C000721106 /* ViewController.swift */; };
-		89787CA21CC270C000721106 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89787CA01CC270C000721106 /* Main.storyboard */; };
+		89787CA21CC270C000721106 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89787CA01CC270C000721106 /* Login.storyboard */; };
 		89787CA41CC270C000721106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89787CA31CC270C000721106 /* Assets.xcassets */; };
 		89787CA71CC270C000721106 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89787CA51CC270C000721106 /* LaunchScreen.storyboard */; };
 		89787CB21CC272C500721106 /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89787CB11CC272C500721106 /* Tabs.storyboard */; };
 		8BC6E6C9ED13BA6908C32D3A /* Pods_Apex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A413B5A187208F6A3414BF7 /* Pods_Apex.framework */; };
+		96916BF81CC2818E0017002B /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96916BF71CC2818E0017002B /* CreateAccount.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,11 +23,12 @@
 		89787C991CC270C000721106 /* Apex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89787C9C1CC270C000721106 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89787C9E1CC270C000721106 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		89787CA11CC270C000721106 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		89787CA11CC270C000721106 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		89787CA31CC270C000721106 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89787CA61CC270C000721106 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89787CA81CC270C000721106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89787CB11CC272C500721106 /* Tabs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tabs.storyboard; sourceTree = "<group>"; };
+		96916BF71CC2818E0017002B /* CreateAccount.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateAccount.storyboard; path = Base.lproj/CreateAccount.storyboard; sourceTree = "<group>"; };
 		A8C3E82E18A320B49B9128AE /* Pods-Apex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apex.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Apex/Pods-Apex.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,9 +74,10 @@
 		89787C9B1CC270C000721106 /* Apex */ = {
 			isa = PBXGroup;
 			children = (
+				96916BF71CC2818E0017002B /* CreateAccount.storyboard */,
 				89787C9C1CC270C000721106 /* AppDelegate.swift */,
 				89787C9E1CC270C000721106 /* ViewController.swift */,
-				89787CA01CC270C000721106 /* Main.storyboard */,
+				89787CA01CC270C000721106 /* Login.storyboard */,
 				89787CB11CC272C500721106 /* Tabs.storyboard */,
 				89787CA31CC270C000721106 /* Assets.xcassets */,
 				89787CA51CC270C000721106 /* LaunchScreen.storyboard */,
@@ -154,8 +157,9 @@
 			files = (
 				89787CB21CC272C500721106 /* Tabs.storyboard in Resources */,
 				89787CA71CC270C000721106 /* LaunchScreen.storyboard in Resources */,
+				96916BF81CC2818E0017002B /* CreateAccount.storyboard in Resources */,
 				89787CA41CC270C000721106 /* Assets.xcassets in Resources */,
-				89787CA21CC270C000721106 /* Main.storyboard in Resources */,
+				89787CA21CC270C000721106 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,12 +226,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		89787CA01CC270C000721106 /* Main.storyboard */ = {
+		89787CA01CC270C000721106 /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				89787CA11CC270C000721106 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 		89787CA51CC270C000721106 /* LaunchScreen.storyboard */ = {
