@@ -69,7 +69,7 @@ class HomeFeedViewController: UIViewController {
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor.lightTextColor() //make the background color light blue
+        header.contentView.backgroundColor = UIColor.greenColor() //make the background color light blue
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

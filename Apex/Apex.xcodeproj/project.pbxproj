@@ -19,6 +19,7 @@
 		C65CD99A1CC279560042D080 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65CD9991CC279560042D080 /* FeedTableViewCell.swift */; };
 		C65CD99C1CC27FEB0042D080 /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */; };
 		C65CD99E1CC28EC30042D080 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C65CD99D1CC28EC30042D080 /* Detail.storyboard */; };
+		C65CD9A01CC2A8310042D080 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65CD99F1CC2A8310042D080 /* DetailViewController.swift */; };
 		E8E0F0D71CC288210002C5EA /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8E0F0D51CC288210002C5EA /* CreateAccount.storyboard */; };
 		E8E0F0DB1CC28BC50002C5EA /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0F0DA1CC28BC50002C5EA /* CreateAccount.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		C65CD9991CC279560042D080 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
 		C65CD99D1CC28EC30042D080 /* Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		C65CD99F1CC2A8310042D080 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E8E0F0D61CC288210002C5EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateAccount.storyboard; sourceTree = "<group>"; };
 		E8E0F0DA1CC28BC50002C5EA /* CreateAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 				9683A2561CC28EEB00E57DBB /* LoginViewController.swift */,
 				E8E0F0D51CC288210002C5EA /* CreateAccount.storyboard */,
 				89787CB11CC272C500721106 /* Tabs.storyboard */,
+				C65CD99F1CC2A8310042D080 /* DetailViewController.swift */,
 				C65CD99D1CC28EC30042D080 /* Detail.storyboard */,
 				C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */,
 				C65CD9991CC279560042D080 /* FeedTableViewCell.swift */,
@@ -147,6 +150,7 @@
 				TargetAttributes = {
 					89787C981CC270C000721106 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = SZ4UP2TRNN;
 					};
 				};
 			};
@@ -244,6 +248,7 @@
 				9683A2571CC28EEB00E57DBB /* LoginViewController.swift in Sources */,
 				C65CD99C1CC27FEB0042D080 /* HomeFeedViewController.swift in Sources */,
 				89B4260B1CC2895800F72EAD /* Calendar.swift in Sources */,
+				C65CD9A01CC2A8310042D080 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,10 +370,13 @@
 			baseConfigurationReference = 82E760BB5E5C1F2F1A97B25B /* Pods-Apex.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Apex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DALI.Apex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -377,10 +385,13 @@
 			baseConfigurationReference = A8C3E82E18A320B49B9128AE /* Pods-Apex.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Apex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DALI.Apex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
