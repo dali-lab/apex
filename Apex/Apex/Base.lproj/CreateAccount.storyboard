@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R2x-xf-vjG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R2x-xf-vjG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture_mountain_4" translatesAutoresizingMaskIntoConstraints="NO" id="CFP-P1-u2H">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyf-Qm-Nwc">
                                 <rect key="frame" x="65" y="76" width="225" height="33"/>
                                 <constraints>
@@ -65,8 +68,13 @@
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXG-L4-YyT">
-                                <rect key="frame" x="20" y="20" width="30" height="26"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vwm-W7-Bct">
+                                <rect key="frame" x="66" y="193" width="243" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXG-L4-YyT">
+                                <rect key="frame" x="20" y="34" width="30" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="iDa-CG-vzN"/>
                                 </constraints>
@@ -75,22 +83,14 @@
                                     <action selector="backClick:" destination="R2x-xf-vjG" eventType="touchUpInside" id="lmY-le-nlL"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vwm-W7-Bct">
-                                <rect key="frame" x="66" y="193" width="243" height="30"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture_mountain_4" translatesAutoresizingMaskIntoConstraints="NO" id="CFP-P1-u2H">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.34901960780000002" green="0.70196078429999997" blue="0.56470588239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="1hb-PN-RTY" firstAttribute="top" secondItem="SXG-L4-YyT" secondAttribute="bottom" constant="621" id="2HC-Gt-TH3"/>
+                            <constraint firstItem="1hb-PN-RTY" firstAttribute="top" secondItem="SXG-L4-YyT" secondAttribute="bottom" constant="607" id="2HC-Gt-TH3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qWr-y9-CGY" secondAttribute="trailing" constant="51" id="3pM-Bq-LFY"/>
                             <constraint firstItem="Vwm-W7-Bct" firstAttribute="top" secondItem="nJk-nP-gFL" secondAttribute="bottom" constant="8" symbolic="YES" id="6an-8d-QIS"/>
                             <constraint firstItem="rBs-H2-OIY" firstAttribute="centerX" secondItem="zE0-Av-VzL" secondAttribute="centerX" id="9Wh-Ej-lBT"/>
-                            <constraint firstItem="SXG-L4-YyT" firstAttribute="top" secondItem="jnK-tZ-kfM" secondAttribute="bottom" id="ELI-PD-G5P"/>
+                            <constraint firstItem="SXG-L4-YyT" firstAttribute="top" secondItem="jnK-tZ-kfM" secondAttribute="bottom" constant="14" id="ELI-PD-G5P"/>
                             <constraint firstItem="rBs-H2-OIY" firstAttribute="leading" secondItem="zE0-Av-VzL" secondAttribute="leadingMargin" constant="50" id="FRx-mX-Nzp"/>
                             <constraint firstItem="Ygx-a8-gHY" firstAttribute="top" secondItem="qWr-y9-CGY" secondAttribute="bottom" constant="29" id="H21-ui-ryk"/>
                             <constraint firstItem="CFP-P1-u2H" firstAttribute="bottom" secondItem="1hb-PN-RTY" secondAttribute="top" id="JOZ-l5-WAz"/>
@@ -108,7 +108,7 @@
                             <constraint firstItem="CFP-P1-u2H" firstAttribute="centerX" secondItem="Ygx-a8-gHY" secondAttribute="centerX" id="iys-ne-aDu"/>
                             <constraint firstItem="gyf-Qm-Nwc" firstAttribute="leading" secondItem="zE0-Av-VzL" secondAttribute="leadingMargin" constant="49" id="lME-SN-6EJ"/>
                             <constraint firstItem="CFP-P1-u2H" firstAttribute="leading" secondItem="zE0-Av-VzL" secondAttribute="leading" id="plj-X7-7bf"/>
-                            <constraint firstItem="SXG-L4-YyT" firstAttribute="leading" secondItem="zE0-Av-VzL" secondAttribute="leadingMargin" constant="4" id="qS1-O5-3xV"/>
+                            <constraint firstItem="SXG-L4-YyT" firstAttribute="leading" secondItem="zE0-Av-VzL" secondAttribute="leadingMargin" id="qS1-O5-3xV"/>
                             <constraint firstItem="nJk-nP-gFL" firstAttribute="trailing" secondItem="Vwm-W7-Bct" secondAttribute="trailing" id="t4d-14-s78"/>
                             <constraint firstItem="rBs-H2-OIY" firstAttribute="top" secondItem="gyf-Qm-Nwc" secondAttribute="bottom" constant="8" symbolic="YES" id="t6f-qg-Soe"/>
                         </constraints>

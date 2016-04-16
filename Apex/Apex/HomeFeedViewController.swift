@@ -196,10 +196,10 @@ class HomeFeedViewController: UIViewController {
         refreshControl.addTarget(self, action: Selector("enlargeTable"), forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
         
-        navBar!.barTintColor = UIColor.darkGrayColor()
-        navBar!.translucent = false;
-        navBar!.tintColor = UIColor.whiteColor()
-        navBar!.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 22)!, NSForegroundColorAttributeName:UIColor.whiteColor()]
+        navBar!.barTintColor = UIColor.whiteColor()
+        navBar!.translucent = true;
+        navBar!.tintColor = UIColor(red:1, green: 0.6, blue:0, alpha: 1)
+        navBar!.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 22)!, NSForegroundColorAttributeName:UIColor(red:1, green: 0.6, blue:0, alpha: 1)]
         
         self.navigationItem.title = "Apex"
                 
