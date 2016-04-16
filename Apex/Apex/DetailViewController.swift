@@ -10,6 +10,8 @@ import UIKit
 
 import ImageSlideshow
 import MapKit
+import Firebase
+
 
 
 class DetailViewController: UIViewController, MKMapViewDelegate {
@@ -84,6 +86,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func joinGroup(sender: AnyObject) {
+//        let ref = Firebase(url: "https://apexdatabase.firebaseio.com/")
+//        ref.unauth()
         if inTrip { // attempt to join group
             print("joining")
             if tripObj.joinTrip(UserManager.uid) { // joined
