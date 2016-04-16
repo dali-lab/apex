@@ -22,11 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().barTintColor = UIColor.grayColor()
         UITabBar.appearance().tintColor = UIColor.whiteColor()
         
-        myRootRef.observeAuthEventWithBlock { (authData) -> Void in
-            if authData != nil {
-                let tabsSB = UIStoryboard(name: "Tabs", bundle: nil)
-                self.window?.rootViewController = tabsSB.instantiateInitialViewController()
-            }
+        let authData = NSUserDefaults.standardUserDefaults().boolForKey("auth")
+        if authData == true {
+            let tabsSB = UIStoryboard(name: "Tabs", bundle: nil)
+            self.window?.rootViewController = tabsSB.instantiateInitialViewController()
         }
         
         return true

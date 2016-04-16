@@ -77,7 +77,7 @@ class CreateAccount: UIViewController {
                                                 }
                                                 else {
                                                     UserManager.uid = auth.uid
-                                                    NSUserDefaults.standardUserDefaults().setObject(auth, forKey: "auth")
+                                                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "auth")
                                                 }
                                                 
                                         })
