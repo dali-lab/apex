@@ -8,62 +8,73 @@
 
 import Foundation
 import EventKit
+import SCLAlertView
 
 class Calendar {
-    let eventStore: EKEventStore = EKEventStore()
-    var authorized = false
     
-    func getAuthorization() {
+    // get user authorization for adding to the calendar
+    static func getAuthorization() -> Bool {
+        var authorized = false
+        let eventStore: EKEventStore = EKEventStore()
         switch EKEventStore.authorizationStatusForEntityType(EKEntityType.Event) {
         case .Authorized:
-            insertEvent(eventStore)
+             authorized = true
         case .Denied:
             print("no access to calendar")
         case .NotDetermined:
             eventStore.requestAccessToEntityType(EKEntityType.Event, completion: {
                 (granted: Bool, error: NSError?) in
                 if (granted && error == nil) {
-                    self!.insertEvent(eventStore)
+                    authorized = true
                 } else {
-                    println("Access denied")
+                    print("Access denied")
                 }
             })
         default:
             print("default")
         }
+        
+        return authorized
     }
     
-    func insertEvent(store: EKEventStore) {
-        let calendars = store.calendarsForEntityType(EKEntityType.Event)
-            as! [EKCalendar]
-        
-        for calendar in calendars {
-            if calendar.title == "ioscreator" {
-                // 3
-                let startDate = NSDate()
-                // 2 hours
-                let endDate = startDate.dateByAddingTimeInterval(2 * 60 * 60)
-                
-                // 4
-                // Create Event
-                var event = EKEvent(eventStore: store)
-                event.calendar = calendar
-                
-                event.title = "New Meeting"
-                event.startDate = startDate
-                event.endDate = endDate
-                
-                // 5
-                // Save Event in Calendar
-                var error: NSError?
-                let result = store.saveEvent(event, span: EKSpanThisEvent, error: &error)
-                
-                if result == false {
-                    if let theError = error {
-                        println("An error occured \(theError)")
-                    }
-                }
+    /**
+     Add an event to the calendar
+     
+     example code:
+     
+     @IBAction func calendarAction(sender: AnyObject) {
+        let start = NSDate()
+        let end = start.dateByAddingTimeInterval(2*60*60)  // 2 hours
+        Calendar.insertEvent("Easy hike", startDate: start, endDate: end)
+     }
+     
+     **/
+    static func insertEvent(title: String, startDate: NSDate, endDate: NSDate) {
+        let eventStore: EKEventStore = EKEventStore()
+        if getAuthorization() {
+            // create event
+            let event = EKEvent(eventStore: eventStore)
+            event.calendar = eventStore.defaultCalendarForNewEvents
+            event.title = title
+            event.startDate = startDate
+            event.endDate = endDate
+            
+            // save event (immediately)
+            do {
+                try eventStore.saveEvent(event, span: EKSpan.ThisEvent, commit: true)
+                notificationForEvent(title)
+            } catch {
+                print("Calendar event save failed")
             }
+            
+        } else {
+            print("unable to add event due to lack of permission")
         }
+    }
+    
+    // pop up calendar notification
+    static func notificationForEvent(title: String) {
+        let alert = SCLAlertView()
+        alert.showInfo("Added " + title, subTitle:"Apex added " + title + " to your calendar")
     }
 }
