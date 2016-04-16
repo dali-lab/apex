@@ -13,6 +13,7 @@
 		89787CA41CC270C000721106 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89787CA31CC270C000721106 /* Assets.xcassets */; };
 		89787CA71CC270C000721106 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89787CA51CC270C000721106 /* LaunchScreen.storyboard */; };
 		89787CB21CC272C500721106 /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89787CB11CC272C500721106 /* Tabs.storyboard */; };
+		89B4260B1CC2895800F72EAD /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4260A1CC2895800F72EAD /* Calendar.swift */; };
 		8BC6E6C9ED13BA6908C32D3A /* Pods_Apex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A413B5A187208F6A3414BF7 /* Pods_Apex.framework */; };
 		C65CD99A1CC279560042D080 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65CD9991CC279560042D080 /* FeedTableViewCell.swift */; };
 		C65CD99C1CC27FEB0042D080 /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */; };
@@ -30,6 +31,7 @@
 		89787CA61CC270C000721106 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89787CA81CC270C000721106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89787CB11CC272C500721106 /* Tabs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tabs.storyboard; sourceTree = "<group>"; };
+		89B4260A1CC2895800F72EAD /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		A8C3E82E18A320B49B9128AE /* Pods-Apex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apex.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Apex/Pods-Apex.release.xcconfig"; sourceTree = "<group>"; };
 		C65CD9991CC279560042D080 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		89787C9B1CC270C000721106 /* Apex */ = {
 			isa = PBXGroup;
 			children = (
+				89B4260A1CC2895800F72EAD /* Calendar.swift */,
 				89787C9C1CC270C000721106 /* AppDelegate.swift */,
 				89787C9E1CC270C000721106 /* ViewController.swift */,
 				89787CA01CC270C000721106 /* Main.storyboard */,
@@ -228,6 +231,7 @@
 				C65CD99A1CC279560042D080 /* FeedTableViewCell.swift in Sources */,
 				89787C9D1CC270C000721106 /* AppDelegate.swift in Sources */,
 				C65CD99C1CC27FEB0042D080 /* HomeFeedViewController.swift in Sources */,
+				89B4260B1CC2895800F72EAD /* Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
