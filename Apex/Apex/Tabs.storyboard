@@ -37,7 +37,7 @@
             </objects>
             <point key="canvasLocation" x="1693.5" y="879.5"/>
         </scene>
-        <!--Upcomming-->
+        <!--Home Feed View Controller-->
         <scene sceneID="4Kf-4u-nrL">
             <objects>
                 <viewController id="SvD-si-eZK" customClass="HomeFeedViewController" customModule="Apex" customModuleProvider="target" sceneMemberID="viewController">
@@ -54,7 +54,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCell" rowHeight="208" id="kDM-3u-z3h" customClass="FeedTableViewCell" customModule="Apex" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="208"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="208"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kDM-3u-z3h" id="bU7-gN-CGq">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="208"/>
@@ -139,14 +139,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Upcomming" id="dOh-Pm-GCn"/>
+                    <navigationItem key="navigationItem" id="wPi-HJ-hMT"/>
                     <connections>
                         <outlet property="tableView" destination="xuM-sw-SQE" id="uAx-0L-9HS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5xj-Bv-Q3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1684.5" y="134.5"/>
+            <point key="canvasLocation" x="2120.5" y="137.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mNZ-6x-cxa">
@@ -159,13 +159,32 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="SvD-si-eZK" kind="relationship" relationship="viewControllers" id="uNi-Sv-vvR"/>
+                        <segue destination="kAa-hn-2xc" kind="relationship" relationship="viewControllers" id="uNi-Sv-vvR"/>
                         <segue destination="gjw-S0-drB" kind="relationship" relationship="viewControllers" id="eof-do-yGR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PW7-1H-K95" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1259" y="464"/>
+        </scene>
+        <!--Upcomming-->
+        <scene sceneID="YUb-tl-OKn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kAa-hn-2xc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Upcomming" id="dOh-Pm-GCn"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1OQ-bL-IAL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SvD-si-eZK" kind="relationship" relationship="rootViewController" id="3I2-2A-96i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="muJ-wu-Hsk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1719.5" y="137.5"/>
         </scene>
     </scenes>
     <resources>
