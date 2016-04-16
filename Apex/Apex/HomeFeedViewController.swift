@@ -202,7 +202,6 @@ class HomeFeedViewController: UIViewController {
         let trip = tripArr[indexPath.section]
         
         cell.picture.image = UIImage(named: "picture_mountain_1")
-<<<<<<< HEAD
         cell.title.text = trip.name
         cell.registration.text = trip.getRegistrationText()
 
