@@ -76,9 +76,8 @@ class CreateAccount: UIViewController {
                                                     SCLAlertView().showError("Log In Failed", subTitle: "Please try logging in again from the home page")
                                                 }
                                                 else {
-                                                    //print(auth.uid)
                                                     UserManager.uid = auth.uid
-                                                    //print(UserManager.uid)
+                                                    NSUserDefaults.standardUserDefaults().setObject(auth, forKey: "auth")
                                                 }
                                                 
                                         })

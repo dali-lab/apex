@@ -187,7 +187,6 @@ class HomeFeedViewController: UIViewController {
         let trip = tripArr[indexPath.section]
         
         cell.picture.image = UIImage(named: "picture_mountain_1")
-<<<<<<< HEAD
         cell.title.text = trip.name
         if trip.getRemainingSpots() == 0 { // remaining
             cell.registration.text = "Trip is full"
