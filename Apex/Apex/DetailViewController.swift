@@ -31,7 +31,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var slideshow: ImageSlideshow!
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
     let regionRadius: CLLocationDistance = 1000
-
+    
+    var tripObj = TripClass(name: "", leaders: [], maxMembers: 0, cost: 0, tags: [], lat: 0.0, long: 0.0, members: [])
 
     override func viewDidLoad() {
         super.viewDidLoad()

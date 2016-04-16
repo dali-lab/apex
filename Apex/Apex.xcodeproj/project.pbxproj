@@ -21,6 +21,7 @@
 		C65CD99C1CC27FEB0042D080 /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */; };
 		C65CD99E1CC28EC30042D080 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C65CD99D1CC28EC30042D080 /* Detail.storyboard */; };
 		C65CD9A01CC2A8310042D080 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65CD99F1CC2A8310042D080 /* DetailViewController.swift */; };
+		C697CB471CC2C302004E0615 /* TripClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C697CB461CC2C302004E0615 /* TripClass.swift */; };
 		E8E0F0D71CC288210002C5EA /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8E0F0D51CC288210002C5EA /* CreateAccount.storyboard */; };
 		E8E0F0DB1CC28BC50002C5EA /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0F0DA1CC28BC50002C5EA /* CreateAccount.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
 		C65CD99D1CC28EC30042D080 /* Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		C65CD99F1CC2A8310042D080 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C697CB461CC2C302004E0615 /* TripClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripClass.swift; sourceTree = "<group>"; };
 		E8E0F0D61CC288210002C5EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateAccount.storyboard; sourceTree = "<group>"; };
 		E8E0F0DA1CC28BC50002C5EA /* CreateAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +108,7 @@
 				89787CA51CC270C000721106 /* LaunchScreen.storyboard */,
 				89787CA81CC270C000721106 /* Info.plist */,
 				89B4260C1CC2A61D00F72EAD /* Trip.swift */,
+				C697CB461CC2C302004E0615 /* TripClass.swift */,
 			);
 			path = Apex;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				E8E0F0DB1CC28BC50002C5EA /* CreateAccount.swift in Sources */,
 				89787C9D1CC270C000721106 /* AppDelegate.swift in Sources */,
 				9683A2571CC28EEB00E57DBB /* LoginViewController.swift in Sources */,
+				C697CB471CC2C302004E0615 /* TripClass.swift in Sources */,
 				C65CD99C1CC27FEB0042D080 /* HomeFeedViewController.swift in Sources */,
 				89B4260D1CC2A61D00F72EAD /* Trip.swift in Sources */,
 				89B4260B1CC2895800F72EAD /* Calendar.swift in Sources */,
