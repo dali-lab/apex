@@ -265,7 +265,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ec4-dg-bv6">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ec4-dg-bv6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="851"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture_mountain_1" translatesAutoresizingMaskIntoConstraints="NO" id="GNe-D4-O8H">
@@ -323,7 +323,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EFD-TR-X6c">
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EFD-TR-X6c">
                                         <rect key="frame" x="0.0" y="522" width="375" height="158"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="158" id="0C5-CG-Wsn"/>
@@ -336,17 +336,14 @@
                                             <constraint firstAttribute="height" constant="68" id="h6b-vY-Jn4"/>
                                         </constraints>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DLo-kF-iB0">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DLo-kF-iB0">
                                         <rect key="frame" x="18" y="386" width="346" height="123"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="123" id="LWG-Un-wlZ"/>
-                                        </constraints>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DMP-cz-cHE" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DMP-cz-cHE" customClass="ImageSlideshow" customModule="ImageSlideshow">
                                         <rect key="frame" x="0.0" y="688" width="375" height="163"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -401,7 +398,6 @@
                                     <constraint firstItem="fSf-Yw-SVs" firstAttribute="top" secondItem="D8n-kk-GL7" secondAttribute="top" id="eVn-fV-htq"/>
                                     <constraint firstItem="c5C-q2-qLT" firstAttribute="leading" secondItem="ec4-dg-bv6" secondAttribute="leading" constant="18" id="fg7-yi-x3O"/>
                                     <constraint firstItem="D8k-qm-JbO" firstAttribute="leading" secondItem="FTJ-Vy-k8O" secondAttribute="trailing" constant="39" id="ike-os-xvO"/>
-                                    <constraint firstItem="EFD-TR-X6c" firstAttribute="top" secondItem="DLo-kF-iB0" secondAttribute="bottom" constant="13" id="leH-3T-zmQ"/>
                                     <constraint firstItem="D8n-kk-GL7" firstAttribute="top" secondItem="Qqd-4r-EYZ" secondAttribute="top" id="lks-42-68F"/>
                                     <constraint firstItem="fSf-Yw-SVs" firstAttribute="top" secondItem="c5C-q2-qLT" secondAttribute="bottom" constant="18" id="lu7-tk-zci"/>
                                     <constraint firstItem="DOa-IU-4zp" firstAttribute="baseline" secondItem="FTJ-Vy-k8O" secondAttribute="baseline" id="nZY-v6-ut2"/>
