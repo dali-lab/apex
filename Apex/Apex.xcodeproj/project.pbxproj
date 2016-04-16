@@ -14,6 +14,8 @@
 		89787CA71CC270C000721106 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89787CA51CC270C000721106 /* LaunchScreen.storyboard */; };
 		89787CB21CC272C500721106 /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89787CB11CC272C500721106 /* Tabs.storyboard */; };
 		8BC6E6C9ED13BA6908C32D3A /* Pods_Apex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A413B5A187208F6A3414BF7 /* Pods_Apex.framework */; };
+		C65CD99A1CC279560042D080 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65CD9991CC279560042D080 /* FeedTableViewCell.swift */; };
+		C65CD99C1CC27FEB0042D080 /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		89787CA81CC270C000721106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89787CB11CC272C500721106 /* Tabs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tabs.storyboard; sourceTree = "<group>"; };
 		A8C3E82E18A320B49B9128AE /* Pods-Apex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apex.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Apex/Pods-Apex.release.xcconfig"; sourceTree = "<group>"; };
+		C65CD9991CC279560042D080 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,8 @@
 				89787C9E1CC270C000721106 /* ViewController.swift */,
 				89787CA01CC270C000721106 /* Main.storyboard */,
 				89787CB11CC272C500721106 /* Tabs.storyboard */,
+				C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */,
+				C65CD9991CC279560042D080 /* FeedTableViewCell.swift */,
 				89787CA31CC270C000721106 /* Assets.xcassets */,
 				89787CA51CC270C000721106 /* LaunchScreen.storyboard */,
 				89787CA81CC270C000721106 /* Info.plist */,
@@ -215,7 +221,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				89787C9F1CC270C000721106 /* ViewController.swift in Sources */,
+				C65CD99A1CC279560042D080 /* FeedTableViewCell.swift in Sources */,
 				89787C9D1CC270C000721106 /* AppDelegate.swift in Sources */,
+				C65CD99C1CC27FEB0042D080 /* HomeFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
