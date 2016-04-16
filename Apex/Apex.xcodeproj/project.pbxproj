@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		895AE2CC1CC2DD480098DD47 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895AE2CB1CC2DD480098DD47 /* DetailViewController.swift */; };
 		89787C9D1CC270C000721106 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89787C9C1CC270C000721106 /* AppDelegate.swift */; };
 		89787C9F1CC270C000721106 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89787C9E1CC270C000721106 /* ViewController.swift */; };
 		89787CA21CC270C000721106 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89787CA01CC270C000721106 /* Main.storyboard */; };
@@ -14,14 +15,12 @@
 		89787CA71CC270C000721106 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89787CA51CC270C000721106 /* LaunchScreen.storyboard */; };
 		89787CB21CC272C500721106 /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89787CB11CC272C500721106 /* Tabs.storyboard */; };
 		89B4260B1CC2895800F72EAD /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4260A1CC2895800F72EAD /* Calendar.swift */; };
-		89B4260D1CC2A61D00F72EAD /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B4260C1CC2A61D00F72EAD /* Trip.swift */; };
 		8BC6E6C9ED13BA6908C32D3A /* Pods_Apex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A413B5A187208F6A3414BF7 /* Pods_Apex.framework */; };
 		9683A2571CC28EEB00E57DBB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9683A2561CC28EEB00E57DBB /* LoginViewController.swift */; };
 		C65CD99A1CC279560042D080 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65CD9991CC279560042D080 /* FeedTableViewCell.swift */; };
 		C65CD99C1CC27FEB0042D080 /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */; };
 		C65CD99E1CC28EC30042D080 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C65CD99D1CC28EC30042D080 /* Detail.storyboard */; };
-		C697CB471CC2C302004E0615 /* TripClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C697CB461CC2C302004E0615 /* TripClass.swift */; };
-		C697CB491CC2D71B004E0615 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C697CB481CC2D71B004E0615 /* DetailViewController.swift */; };
+		C697CB491CC2D71B004E0615 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		E8E0F0D71CC288210002C5EA /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8E0F0D51CC288210002C5EA /* CreateAccount.storyboard */; };
 		E8E0F0DB1CC28BC50002C5EA /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0F0DA1CC28BC50002C5EA /* CreateAccount.swift */; };
 		E8E0F0DD1CC2C5A10002C5EA /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0F0DC1CC2C5A10002C5EA /* UserManager.swift */; };
@@ -30,6 +29,7 @@
 /* Begin PBXFileReference section */
 		1A413B5A187208F6A3414BF7 /* Pods_Apex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Apex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82E760BB5E5C1F2F1A97B25B /* Pods-Apex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apex.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Apex/Pods-Apex.debug.xcconfig"; sourceTree = "<group>"; };
+		895AE2CB1CC2DD480098DD47 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		89787C991CC270C000721106 /* Apex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89787C9C1CC270C000721106 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89787C9E1CC270C000721106 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,14 +39,11 @@
 		89787CA81CC270C000721106 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89787CB11CC272C500721106 /* Tabs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tabs.storyboard; sourceTree = "<group>"; };
 		89B4260A1CC2895800F72EAD /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
-		89B4260C1CC2A61D00F72EAD /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		9683A2561CC28EEB00E57DBB /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A8C3E82E18A320B49B9128AE /* Pods-Apex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apex.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Apex/Pods-Apex.release.xcconfig"; sourceTree = "<group>"; };
 		C65CD9991CC279560042D080 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
 		C65CD99D1CC28EC30042D080 /* Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
-		C697CB461CC2C302004E0615 /* TripClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripClass.swift; sourceTree = "<group>"; };
-		C697CB481CC2D71B004E0615 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E8E0F0D61CC288210002C5EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateAccount.storyboard; sourceTree = "<group>"; };
 		E8E0F0DA1CC28BC50002C5EA /* CreateAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 		E8E0F0DC1CC2C5A10002C5EA /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -94,7 +91,6 @@
 		89787C9B1CC270C000721106 /* Apex */ = {
 			isa = PBXGroup;
 			children = (
-				C697CB481CC2D71B004E0615 /* DetailViewController.swift */,
 				89B4260A1CC2895800F72EAD /* Calendar.swift */,
 				89787C9C1CC270C000721106 /* AppDelegate.swift */,
 				89787C9E1CC270C000721106 /* ViewController.swift */,
@@ -106,12 +102,11 @@
 				89787CB11CC272C500721106 /* Tabs.storyboard */,
 				C65CD99D1CC28EC30042D080 /* Detail.storyboard */,
 				C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */,
+				895AE2CB1CC2DD480098DD47 /* DetailViewController.swift */,
 				C65CD9991CC279560042D080 /* FeedTableViewCell.swift */,
 				89787CA31CC270C000721106 /* Assets.xcassets */,
 				89787CA51CC270C000721106 /* LaunchScreen.storyboard */,
 				89787CA81CC270C000721106 /* Info.plist */,
-				89B4260C1CC2A61D00F72EAD /* Trip.swift */,
-				C697CB461CC2C302004E0615 /* TripClass.swift */,
 			);
 			path = Apex;
 			sourceTree = "<group>";
@@ -250,15 +245,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C697CB491CC2D71B004E0615 /* DetailViewController.swift in Sources */,
+				C697CB491CC2D71B004E0615 /* (null) in Sources */,
 				89787C9F1CC270C000721106 /* ViewController.swift in Sources */,
 				C65CD99A1CC279560042D080 /* FeedTableViewCell.swift in Sources */,
 				E8E0F0DB1CC28BC50002C5EA /* CreateAccount.swift in Sources */,
 				89787C9D1CC270C000721106 /* AppDelegate.swift in Sources */,
 				9683A2571CC28EEB00E57DBB /* LoginViewController.swift in Sources */,
-				C697CB471CC2C302004E0615 /* TripClass.swift in Sources */,
 				C65CD99C1CC27FEB0042D080 /* HomeFeedViewController.swift in Sources */,
-				89B4260D1CC2A61D00F72EAD /* Trip.swift in Sources */,
+				895AE2CC1CC2DD480098DD47 /* DetailViewController.swift in Sources */,
 				89B4260B1CC2895800F72EAD /* Calendar.swift in Sources */,
 				E8E0F0DD1CC2C5A10002C5EA /* UserManager.swift in Sources */,
 			);

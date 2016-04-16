@@ -9,6 +9,9 @@
 import UIKit
 import Firebase
 
+
+
+// TRIP
 class TripClass {
     
     static let ref = Firebase(url: "https://apexdatabase.firebaseio.com/trips")
@@ -21,13 +24,16 @@ class TripClass {
     var tags: [String] = []
     var lat: CGFloat = 0.0
     var long: CGFloat = 0.0
+    var description: String = ""
+    var startTime: Double = 0
+    var endTime: Double = 0
     
     // these fields are optional
     var members: [String] = []
 
     
     
-    init(name: String, leaders: [String], maxMembers: Int, cost: Int, tags: [String], lat: CGFloat, long: CGFloat, members: [String]) {
+    init(name: String, leaders: [String], maxMembers: Int, cost: Int, tags: [String], lat: CGFloat, long: CGFloat, members: [String], description: String, startTime: Double, endTime: Double) {
         self.name = name
         self.leaders = leaders
         self.maxMembers = maxMembers
@@ -36,6 +42,13 @@ class TripClass {
         self.lat = lat
         self.long = long
         self.members = members
+        self.description = description
+        self.startTime = startTime
+        self.endTime = endTime
+    }
+    
+    func getRemainingSpots() -> Int {
+        return maxMembers - leaders.count - members.count
     }
     
     class func getTrips(callback:(trips: [TripClass]) -> Void) {
@@ -56,8 +69,11 @@ class TripClass {
                 if members == nil {
                     members = []
                 }
+                let description = trip.value.objectForKey("description") as! String
+                let startTime = trip.value.objectForKey("startTime") as! Double
+                let endTime = trip.value.objectForKey("endTime") as! Double
                 
-                trips.append(TripClass(name: name, leaders: leaders, maxMembers: maxMembers, cost: cost, tags: tags, lat: lat, long: long, members: members!))
+                trips.append(TripClass(name: name, leaders: leaders, maxMembers: maxMembers, cost: cost, tags: tags, lat: lat, long: long, members: members!, description: description, startTime: startTime, endTime: endTime))
             }
             callback(trips: trips)
             }, withCancelBlock: { error in
@@ -67,7 +83,7 @@ class TripClass {
 
 }
 
-
+// UIViewController
 class HomeFeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
@@ -92,8 +108,6 @@ class HomeFeedViewController: UIViewController {
 
 
     func myfunc(trips: [TripClass]) {
-        print(trips)
-        
         tripArr = trips
         print("reloading database")
         tableView.reloadData()
@@ -122,13 +136,35 @@ class HomeFeedViewController: UIViewController {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FeedCell", forIndexPath: indexPath) as! FeedTableViewCell
-        
-        print ("cell")
+
+        let trip = tripArr[indexPath.section]
         
         cell.picture.image = UIImage(named: "picture_mountain_1")
+        cell.title.text = trip.name
+        if trip.getRemainingSpots() == 0 { // remaining
+            cell.registration.text = "Trip is full"
+        } else {
+            cell.registration.text = String(trip.getRemainingSpots()) + " " + (trip.getRemainingSpots() == 0 ? "spot": "spots") + " remaining"
+        }
         
-//        cell.picture.contentMode = .
+        if trip.cost == 0 { //cost
+            cell.registration.text = cell.registration.text! + ", Free"
+        } else {
+            cell.registration.text = cell.registration.text! + ", $" + String(trip.cost)
+        }
+
+        cell.descriptionText.text = trip.description
         
+        
+        let startDate = NSDate(timeIntervalSince1970: trip.startTime)
+        let startDateFormatter = NSDateFormatter()
+        startDateFormatter.dateFormat = "EEE MMM, dd h:mm a"
+        
+        let endDate = NSDate(timeIntervalSince1970: trip.endTime)
+        let endDateFormatter = NSDateFormatter()
+        endDateFormatter.dateFormat = "h:mm a"
+        
+        cell.dateTime.text = startDateFormatter.stringFromDate(startDate) + " to " + endDateFormatter.stringFromDate(endDate)
         
         return cell
     }
@@ -156,8 +192,6 @@ class HomeFeedViewController: UIViewController {
         let detailVC = mainSB.instantiateViewControllerWithIdentifier("Detail") as! DetailViewController
         detailVC.tripObj = tripArr[indexPath.section]
         self.navigationController!.pushViewController(detailVC, animated: true)
-        
-        
     }
 
     
