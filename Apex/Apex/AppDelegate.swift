@@ -18,15 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        UITabBar.appearance().translucent = false
-        UITabBar.appearance().barTintColor = UIColor.grayColor()
-        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        UITabBar.appearance().translucent = true
+        UITabBar.appearance().barTintColor = UIColor.whiteColor()
+        UITabBar.appearance().tintColor = UIColor(red: 1, green: 0.6, blue: 0, alpha:1)
         
-        myRootRef.observeAuthEventWithBlock { (authData) -> Void in
-            if authData != nil {
-                let tabsSB = UIStoryboard(name: "Tabs", bundle: nil)
-                self.window?.rootViewController = tabsSB.instantiateInitialViewController()
-            }
+        let authData = NSUserDefaults.standardUserDefaults().boolForKey("auth")
+        if authData == true {
+            let tabsSB = UIStoryboard(name: "Tabs", bundle: nil)
+            self.window?.rootViewController = tabsSB.instantiateInitialViewController()
         }
         
         return true
