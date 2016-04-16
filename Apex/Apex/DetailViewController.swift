@@ -23,28 +23,52 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var leader2Label: UILabel!
     @IBOutlet weak var leader3Image: UIImageView!
     @IBOutlet weak var leader3Label: UILabel!
+    @IBOutlet weak var textDescription: UITextView!
     
-    @IBOutlet weak var tripDescription: UILabel!
-
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var slideshow: ImageSlideshow!
     var transitionDelegate: ZoomAnimatedTransitioningDelegate?
-    let regionRadius: CLLocationDistance = 1000
+    let regionRadius: CLLocationDistance = 10000
     
     var tripObj = TripClass(name: "", leaders: [], maxMembers: 0, cost: 0, tags: [], lat: 0.0, long: 0.0, members: [], description: "", startTime: 0, endTime: 0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
+        tripTitle.text = tripObj.name + ", $" + String(tripObj.cost)
+        leader1Label.text = tripObj.leaders[0]
+        if tripObj.leaders.count > 1 {
+            leader2Label.text = tripObj.leaders[1]
+        } else {
+            leader2Label.hidden = true
+            leader2Image.hidden = true
+        }
+        if tripObj.leaders.count > 2 {
+            leader3Label.text = tripObj.leaders[2]
+        } else {
+            leader3Label.hidden = true
+            leader3Image.hidden = true
+        }
+        
+        
+        textDescription.text = "lskdjf l;lskdj flkdjflsjf lksjasldkjf lakjsd lf;kajsd lfjs ldfkaj s;ldkfj slkdjf alskdjf a;lskdjf lskjdf laksjd flksjdf;lskdjf al;skdjf laksjdflaksdjflksj fl;aksdjf\n ksjdkf \n sdjfs\nsdjkfskd fj\nkdjsf skdj \nsdkfj sdkfj\nsdjkf sj\nsdkfj \nsdkfjs \n kjds f\ns dfkjsd \ns dkfjs d\nsdkf jsdkf d ;lksjf "
+        
+        let fixedWidth = textDescription.frame.size.width
+        textDescription.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        let newSize = textDescription.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        var newFrame = textDescription.frame
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        textDescription.frame = newFrame
+        textDescription.scrollEnabled = false
         
 
+        
+        let initialLocation = CLLocation(latitude: Double(tripObj.lat), longitude: Double(tripObj.long))
         dispatch_async(dispatch_get_main_queue()) {
             self.centerMapOnLocation(initialLocation)
         }
-        
-        mapView.userInteractionEnabled = false
+//        mapView.userInteractionEnabled = false
         
         setUpSlideShow()
 
@@ -99,4 +123,20 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     }
     */
 
+}
+
+extension UILabel{
+    
+    func requiredHeight() -> CGFloat{
+        
+        let label:UILabel = UILabel(frame: CGRectMake(0, 0, self.frame.width, CGFloat.max))
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        label.font = self.font
+        label.text = self.text
+        
+        label.sizeToFit()
+        
+        return label.frame.height
+    }
 }
