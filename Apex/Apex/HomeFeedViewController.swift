@@ -55,7 +55,7 @@ class TripClass {
         let tripRef = Firebase(url: "https://apexdatabase.firebaseio.com/trips").childByAppendingPath(name)
         if getRemainingSpots() < maxMembers {
             members.append(userID)
-//            tripRef.updateChildValues(members)
+            tripRef.updateChildValues(members)
             return true
         } else {
             return false
@@ -67,7 +67,7 @@ class TripClass {
         var leftTrip = false
         for index in 1...members.count {
             if members[index-1] == userID {
-                members.removeAtIndex(index)
+                members.removeAtIndex(index-1)
                 leftTrip = true
             }
         }
