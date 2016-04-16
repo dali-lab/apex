@@ -157,7 +157,7 @@
 				TargetAttributes = {
 					89787C981CC270C000721106 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = SZ4UP2TRNN;
+						DevelopmentTeam = 768827566S;
 					};
 				};
 			};
@@ -384,7 +384,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Apex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DALI.Apex;
+				PRODUCT_BUNDLE_IDENTIFIER = DALI.ApexHack2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -399,7 +399,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Apex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = DALI.Apex;
+				PRODUCT_BUNDLE_IDENTIFIER = DALI.ApexHack2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

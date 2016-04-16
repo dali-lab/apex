@@ -18,6 +18,7 @@ class TripClass {
     static let tripRef = Firebase(url: "https://apexdatabase.firebaseio.com/trips")
     
     // a Trip in the database MUST have these fields
+    var id: String = ""
     var name: String = ""
     var leaders: [String] = []
     var maxMembers: Int = 0
@@ -34,7 +35,8 @@ class TripClass {
 
     
     
-    init(name: String, leaders: [String], maxMembers: Int, cost: Int, tags: [String], lat: CGFloat, long: CGFloat, members: [String], description: String, startTime: Double, endTime: Double) {
+    init(id: String, name: String, leaders: [String], maxMembers: Int, cost: Int, tags: [String], lat: CGFloat, long: CGFloat, members: [String], description: String, startTime: Double, endTime: Double) {
+        self.id = id
         self.name = name
         self.leaders = leaders
         self.maxMembers = maxMembers
@@ -52,10 +54,14 @@ class TripClass {
     
     // returns true if user was able to join trip
     func joinTrip(userID: String) -> Bool {
-        let tripRef = Firebase(url: "https://apexdatabase.firebaseio.com/trips").childByAppendingPath(name)
+        let tripRef = Firebase(url: "https://apexdatabase.firebaseio.com/trips").childByAppendingPath(id).childByAppendingPath("members")
         if getRemainingSpots() < maxMembers {
             members.append(userID)
-//            tripRef.updateChildValues(members)
+            var dict = [String: String]()
+            for index in 1...members.count {
+                dict[String(index-1)] = members[index-1]
+            }
+            tripRef.updateChildValues(dict)
             return true
         } else {
             return false
@@ -64,13 +70,19 @@ class TripClass {
     
     // returns true if the user was able to leave the trip
     func leaveTrip(userID: String) -> Bool {
+        let tripRef = Firebase(url: "https://apexdatabase.firebaseio.com/trips").childByAppendingPath(id).childByAppendingPath("members")
         var leftTrip = false
         for index in 1...members.count {
             if members[index-1] == userID {
-                members.removeAtIndex(index)
+                members.removeAtIndex(index-1)
                 leftTrip = true
             }
         }
+        var dict = [String: String]()
+        for index in 1...members.count {
+            dict[String(index-1)] = members[index-1]
+        }
+        tripRef.setValue(dict)
         if leftTrip == false {
             print("unable to leave the trip even though i'm supposed to be in there")
         }
@@ -105,7 +117,8 @@ class TripClass {
             print("getting trips: ")
             for trip in snapshot.children {
                 print(trip.value.objectForKey("name") as! String)
-                
+
+                let id = trip.value.objectForKey("id") as! String
                 let name = trip.value.objectForKey("name") as! String
                 let leaders = trip.value.objectForKey("leaders") as! [String]
                 let maxMembers = trip.value.objectForKey("maxMembers") as! Int
@@ -121,7 +134,7 @@ class TripClass {
                 let startTime = trip.value.objectForKey("startTime") as! Double
                 let endTime = trip.value.objectForKey("endTime") as! Double
                 
-                trips.append(TripClass(name: name, leaders: leaders, maxMembers: maxMembers, cost: cost, tags: tags, lat: lat, long: long, members: members!, description: description, startTime: startTime, endTime: endTime))
+                trips.append(TripClass(id: id, name: name, leaders: leaders, maxMembers: maxMembers, cost: cost, tags: tags, lat: lat, long: long, members: members!, description: description, startTime: startTime, endTime: endTime))
             }
             callback(trips: trips)
             }, withCancelBlock: { error in
@@ -140,6 +153,7 @@ class TripClass {
                 if (members != nil && members!.contains(uid)) {
                     print(trip.value.objectForKey("name") as! String)
 
+                    let id = trip.value.objectForKey("id") as! String
                     let name = trip.value.objectForKey("name") as! String
                     let leaders = trip.value.objectForKey("leaders") as! [String]
                     let maxMembers = trip.value.objectForKey("maxMembers") as! Int
@@ -151,7 +165,7 @@ class TripClass {
                     let startTime = trip.value.objectForKey("startTime") as! Double
                     let endTime = trip.value.objectForKey("endTime") as! Double
                     
-                    trips.append(TripClass(name: name, leaders: leaders, maxMembers: maxMembers, cost: cost, tags: tags, lat: lat, long: long, members: members!, description: description, startTime: startTime, endTime: endTime))
+                    trips.append(TripClass(id: id, name: name, leaders: leaders, maxMembers: maxMembers, cost: cost, tags: tags, lat: lat, long: long, members: members!, description: description, startTime: startTime, endTime: endTime))
                 }
             }
             callback(trips: trips)

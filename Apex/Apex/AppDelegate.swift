@@ -23,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = UIColor(red: 1, green: 0.6, blue: 0, alpha:1)
         
         let authData = NSUserDefaults.standardUserDefaults().boolForKey("auth")
+        if let uid = NSUserDefaults.standardUserDefaults().stringForKey("userID") {
+            UserManager.uid = uid
+        }
+        print("user id: " + UserManager.uid)
         if authData == true {
             let tabsSB = UIStoryboard(name: "Tabs", bundle: nil)
             self.window?.rootViewController = tabsSB.instantiateInitialViewController()
