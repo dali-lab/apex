@@ -8,7 +8,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--My Trips-->
+        <!--View Controller-->
         <scene sceneID="zc8-lb-yxw">
             <objects>
                 <viewController id="gjw-S0-drB" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                             <constraint firstItem="bcV-21-HZY" firstAttribute="centerX" secondItem="ZxU-8o-iQf" secondAttribute="centerX" id="i5u-st-IZP"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Trips" image="icon_trip" id="xiF-km-rRe"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="xiF-km-rRe"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZUe-RM-c2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -368,11 +368,11 @@
             </objects>
             <point key="canvasLocation" x="1259" y="464"/>
         </scene>
-        <!--Upcoming-->
+        <!--Navigation Controller-->
         <scene sceneID="YUb-tl-OKn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kAa-hn-2xc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Upcoming" image="icon_clock" id="dOh-Pm-GCn"/>
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="dOh-Pm-GCn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1OQ-bL-IAL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -389,9 +389,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_clock" width="32" height="32"/>
         <image name="icon_hiking" width="64" height="64"/>
-        <image name="icon_trip" width="32" height="32"/>
         <image name="picture_mountain_1" width="429" height="268"/>
     </resources>
 </document>
