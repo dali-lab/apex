@@ -14,10 +14,16 @@ class HomeFeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.tableView.estimatedRowHeight = 208
-//        self.tableView.rowHeight = (UITableViewAutomaticDimension)
+        let navBar = self.navigationController?.navigationBar
+        
+        navBar!.barTintColor = UIColor.darkGrayColor()
+        navBar!.translucent = false;
+        navBar!.tintColor = UIColor.whiteColor()
+        navBar!.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 22)!, NSForegroundColorAttributeName:UIColor.whiteColor()]
+        
+        self.navigationItem.title = "Apex"
+        
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +48,7 @@ class HomeFeedViewController: UIViewController {
         
         cell.picture.image = UIImage(named: "picture_mountain_1")
         
-//        cell.picture.contentMode = .ScaleAspectFill
+//        cell.picture.contentMode = .
         
         
         return cell
@@ -64,6 +70,10 @@ class HomeFeedViewController: UIViewController {
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
         header.contentView.backgroundColor = UIColor.lightTextColor() //make the background color light blue
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+            performSegueWithIdentifier("toDetail2", sender: self)
     }
 
     
