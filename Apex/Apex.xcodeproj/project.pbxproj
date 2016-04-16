@@ -18,6 +18,7 @@
 		9683A2571CC28EEB00E57DBB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9683A2561CC28EEB00E57DBB /* LoginViewController.swift */; };
 		C65CD99A1CC279560042D080 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65CD9991CC279560042D080 /* FeedTableViewCell.swift */; };
 		C65CD99C1CC27FEB0042D080 /* HomeFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */; };
+		C65CD99E1CC28EC30042D080 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C65CD99D1CC28EC30042D080 /* Detail.storyboard */; };
 		E8E0F0D71CC288210002C5EA /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8E0F0D51CC288210002C5EA /* CreateAccount.storyboard */; };
 		E8E0F0DB1CC28BC50002C5EA /* CreateAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E0F0DA1CC28BC50002C5EA /* CreateAccount.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		A8C3E82E18A320B49B9128AE /* Pods-Apex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Apex.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Apex/Pods-Apex.release.xcconfig"; sourceTree = "<group>"; };
 		C65CD9991CC279560042D080 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedViewController.swift; sourceTree = "<group>"; };
+		C65CD99D1CC28EC30042D080 /* Detail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		E8E0F0D61CC288210002C5EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateAccount.storyboard; sourceTree = "<group>"; };
 		E8E0F0DA1CC28BC50002C5EA /* CreateAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 				9683A2561CC28EEB00E57DBB /* LoginViewController.swift */,
 				E8E0F0D51CC288210002C5EA /* CreateAccount.storyboard */,
 				89787CB11CC272C500721106 /* Tabs.storyboard */,
+				C65CD99D1CC28EC30042D080 /* Detail.storyboard */,
 				C65CD99B1CC27FEB0042D080 /* HomeFeedViewController.swift */,
 				C65CD9991CC279560042D080 /* FeedTableViewCell.swift */,
 				89787CA31CC270C000721106 /* Assets.xcassets */,
@@ -175,6 +178,7 @@
 				E8E0F0D71CC288210002C5EA /* CreateAccount.storyboard in Resources */,
 				89787CA41CC270C000721106 /* Assets.xcassets in Resources */,
 				89787CA21CC270C000721106 /* Main.storyboard in Resources */,
+				C65CD99E1CC28EC30042D080 /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AGA-CN-rVy">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="fWY-t4-7Xk">
+            <objects>
+                <viewController id="AGA-CN-rVy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4jB-qO-swv"/>
+                        <viewControllerLayoutGuide type="bottom" id="T0x-Zr-krh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kGd-XZ-uGY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example Trip Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5m8-RA-LUj">
+                                <rect key="frame" x="20" y="97" width="247" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5m8-RA-LUj" firstAttribute="top" secondItem="4jB-qO-swv" secondAttribute="bottom" constant="77" id="8al-l6-HLf"/>
+                            <constraint firstItem="T0x-Zr-krh" firstAttribute="top" secondItem="5m8-RA-LUj" secondAttribute="bottom" constant="548" id="Okj-Qk-ryU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5m8-RA-LUj" secondAttribute="trailing" constant="92" id="fDH-eU-HHe"/>
+                            <constraint firstItem="5m8-RA-LUj" firstAttribute="leading" secondItem="kGd-XZ-uGY" secondAttribute="leadingMargin" constant="4" id="ni9-H9-0P2"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DFA-6P-wZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="373.5" y="477.5"/>
+        </scene>
+    </scenes>
+</document>
