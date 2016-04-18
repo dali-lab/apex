@@ -3,9 +3,9 @@
 ### Inspiration
 The Dartmouth Outing Club is an essential part of the Dartmouth community, organizing trips weekly for different types of activities and people. However, the way these trips are organized is very inefficient and not conductive to new members. Different groups have different methods of conducting their trip signups, some use massive email chains while others have Google spreadsheets. Apex is inspired by the DOC to make trip organization seamless and simple for interested students and organizers.
 
-![login](imgs/login.png)
-![feed](imgs/feed.png)
-![detail](imgs/detail.png)
+<img src="imgs/login.png" width="220" >
+<img src="imgs/feed.png" width="220" >
+<img src="imgs/detail.png" width="220" >
 
 ###  What it does
 Users can sign up with only their email and password. After registering, users are directed towards upcoming trips. Clicking on a trip brings you to a more detailed view of the trip including a description, remaining spots on the trip, the location on a map, and images related to the event. If interested, a user can choose to join a trip. There is also a separate tab to view all of the trips a user has already signed up for.
