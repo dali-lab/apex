@@ -1,4 +1,4 @@
-# Apex, beautiful, simple trip organization
+# Apex | beautiful, simple trip organization
 
 ### Inspiration
 The Dartmouth Outing Club is an essential part of the Dartmouth community, organizing trips weekly for different types of activities and people. However, the way these trips are organized is very inefficient and not conductive to new members. Different groups have different methods of conducting their trip signups, some use massive email chains while others have Google spreadsheets. Apex is inspired by the DOC to make trip organization seamless and simple for interested students and organizers.
